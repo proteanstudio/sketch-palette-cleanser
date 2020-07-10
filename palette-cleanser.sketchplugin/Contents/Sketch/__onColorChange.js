@@ -260,6 +260,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _buildPaletteCell__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./buildPaletteCell */ "./src/methods/buildPaletteCell.js");
 /* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/constants */ "./src/utils/constants.js");
+/* harmony import */ var _utils_loc__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/loc */ "./src/utils/loc.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -271,6 +272,7 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.it
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 
 
@@ -374,10 +376,9 @@ function updatePaletteItem(document, previousColor, updatedColor, updatedThickne
   }
 
   cleanlyRemoveCell(cellToRemove, type);
-  message('Palette Updating');
   Settings.setDocumentSettingForKey(document, "shared-".concat(type, "s"), sharedColors);
   Settings.setDocumentSettingForKey(document, "layer-".concat(type, "s"), layerColors);
-  message('Palette Updated');
+  message(Object(_utils_loc__WEBPACK_IMPORTED_MODULE_3__["default"])('messages.paletteUpdated'));
 }
 
 /***/ }),
@@ -465,6 +466,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE_CELL_HEIGHT", function() { return BASE_CELL_HEIGHT; });
 var PALETTE_NAME = 'Document Color Palette (DO NOT CHANGE)';
 var BASE_CELL_HEIGHT = 95;
+
+/***/ }),
+
+/***/ "./src/utils/loc.js":
+/*!**************************!*\
+  !*** ./src/utils/loc.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return loc; });
+/* harmony import */ var _strings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./strings */ "./src/utils/strings.js");
+
+function loc(key) {
+  return key.split('.').reduce(function (acc, item) {
+    return acc[item] || '';
+  }, _strings__WEBPACK_IMPORTED_MODULE_0__["default"]);
+}
+
+/***/ }),
+
+/***/ "./src/utils/strings.js":
+/*!******************************!*\
+  !*** ./src/utils/strings.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  shared: {
+    title: 'Shared Styles',
+    subtitle: '[Some encouragement about using shared styles and how they are semantic, reusable, and can be updated in a single place.]'
+  },
+  unique: {
+    title: 'Unique Styles',
+    subtitle: '[Some admonishment about using one-off styles since they lack semantic content and have to be adjusted one-by-one, which is a nightmare.]'
+  },
+  fillsHeader: 'Fills',
+  bordersHeader: 'Borders',
+  messages: {
+    paletteBuilt: 'Color Pallete Document Created',
+    paletteUpdated: 'Pallete Updated'
+  }
+});
 
 /***/ }),
 

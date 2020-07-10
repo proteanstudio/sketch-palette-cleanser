@@ -187,6 +187,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addLayerIfPresent */ "./src/methods/addLayerIfPresent.js");
 /* harmony import */ var _buildColumnGroup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./buildColumnGroup */ "./src/methods/buildColumnGroup.js");
 /* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/constants */ "./src/utils/constants.js");
+/* harmony import */ var _utils_loc__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/loc */ "./src/utils/loc.js");
+
 
 
 
@@ -215,18 +217,16 @@ function buildPaletteBoard(document, sharedFills, layerFills, sharedBorders, lay
     x: 0,
     y: 150
   };
-  var sharedSubtext = '[Some encouragement about using shared styles and how they are semantic, reusable, and can be updated in a single place.] ';
-  var sharedStylesGroup = Object(_buildColumnGroup__WEBPACK_IMPORTED_MODULE_3__["default"])('shared-palette-styles', [75, 75, 400, coordinates.y], 'Shared Styles', sharedSubtext);
-  var sLFCGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'shared_layer_fills', 'Fills', sharedFills);
-  var sLBCGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'shared_layer_borders', 'Borders', sharedBorders, 'border');
+  var sharedStylesGroup = Object(_buildColumnGroup__WEBPACK_IMPORTED_MODULE_3__["default"])('shared-palette-styles', [75, 75, 400, coordinates.y], Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('shared.title'), Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('shared.subtitle'));
+  var sLFCGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'shared_layer_fills', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('fillsHeader'), sharedFills);
+  var sLBCGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'shared_layer_borders', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('bordersHeader'), sharedBorders, 'border');
   Object(_addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__["default"])(sLFCGroup, sharedStylesGroup);
   Object(_addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__["default"])(sLBCGroup, sharedStylesGroup);
-  var uniqueSubtext = '[Some admonishment about using one-off styles since they lack semantic content and have to be adjusted one-by-one, which is a nightmare.]';
-  var uniqueStylesGroup = Object(_buildColumnGroup__WEBPACK_IMPORTED_MODULE_3__["default"])('unique-palette-styles', [550, 75, 350, coordinates.y], 'Unique Styles', uniqueSubtext);
+  var uniqueStylesGroup = Object(_buildColumnGroup__WEBPACK_IMPORTED_MODULE_3__["default"])('unique-palette-styles', [550, 75, 350, coordinates.y], Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('unique.title'), Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('unique.subtitle'));
   var sharedStylesY = coordinates.y;
   coordinates.y = 150;
-  var lFGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'layer_fills', 'Fills', layerFills);
-  var lBGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'layer_borders', 'Borders', layerBorders, 'border');
+  var lFGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'layer_fills', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('fillsHeader'), layerFills);
+  var lBGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'layer_borders', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('bordersHeader'), layerBorders, 'border');
   Object(_addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__["default"])(lFGroup, uniqueStylesGroup);
   Object(_addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__["default"])(lBGroup, uniqueStylesGroup);
   paletteBoard.layers = [sharedStylesGroup, uniqueStylesGroup].filter(function (group) {
@@ -691,6 +691,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methods_processLayerColors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methods/processLayerColors */ "./src/methods/processLayerColors.js");
 /* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils/constants */ "./src/utils/constants.js");
 /* harmony import */ var _methods_buildPaletteBoard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methods/buildPaletteBoard */ "./src/methods/buildPaletteBoard.js");
+/* harmony import */ var _utils_loc__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/loc */ "./src/utils/loc.js");
+
 
 
 
@@ -702,7 +704,6 @@ var Document = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Document,
     Settings = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Settings,
     message = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message;
 function setupPalette() {
-  message('Building Color Pallete Document');
   var document = Document.getSelectedDocument();
   var sharedFills = Object(_methods_getSharedFillStyles__WEBPACK_IMPORTED_MODULE_1__["default"])(document);
   var sharedBorders = Object(_methods_getSharedBorderStyles__WEBPACK_IMPORTED_MODULE_2__["default"])(document);
@@ -720,7 +721,7 @@ function setupPalette() {
   Settings.setDocumentSettingForKey(document, 'layer-fills', layerFills);
   Settings.setDocumentSettingForKey(document, 'layer-borders', layerBorders);
   Object(_methods_buildPaletteBoard__WEBPACK_IMPORTED_MODULE_6__["default"])(document, sharedFills, layerFills, sharedBorders, layerBorders);
-  message('Color Pallete Document Created');
+  message(Object(_utils_loc__WEBPACK_IMPORTED_MODULE_7__["default"])('messages.paletteBuilt'));
 }
 
 /***/ }),
@@ -777,6 +778,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE_CELL_HEIGHT", function() { return BASE_CELL_HEIGHT; });
 var PALETTE_NAME = 'Document Color Palette (DO NOT CHANGE)';
 var BASE_CELL_HEIGHT = 95;
+
+/***/ }),
+
+/***/ "./src/utils/loc.js":
+/*!**************************!*\
+  !*** ./src/utils/loc.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return loc; });
+/* harmony import */ var _strings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./strings */ "./src/utils/strings.js");
+
+function loc(key) {
+  return key.split('.').reduce(function (acc, item) {
+    return acc[item] || '';
+  }, _strings__WEBPACK_IMPORTED_MODULE_0__["default"]);
+}
+
+/***/ }),
+
+/***/ "./src/utils/strings.js":
+/*!******************************!*\
+  !*** ./src/utils/strings.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  shared: {
+    title: 'Shared Styles',
+    subtitle: '[Some encouragement about using shared styles and how they are semantic, reusable, and can be updated in a single place.]'
+  },
+  unique: {
+    title: 'Unique Styles',
+    subtitle: '[Some admonishment about using one-off styles since they lack semantic content and have to be adjusted one-by-one, which is a nightmare.]'
+  },
+  fillsHeader: 'Fills',
+  bordersHeader: 'Borders',
+  messages: {
+    paletteBuilt: 'Color Pallete Document Created',
+    paletteUpdated: 'Pallete Updated'
+  }
+});
 
 /***/ }),
 

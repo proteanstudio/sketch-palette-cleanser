@@ -3,6 +3,7 @@ import buildSectionGroup from './buildSectionGroup';
 import addLayerIfPresent from './addLayerIfPresent';
 import buildColumnGroup from './buildColumnGroup';
 import { PALETTE_NAME } from '../utils/constants';
+import loc from '../utils/loc';
 
 const { Rectangle, Artboard } = sketch;
 
@@ -25,39 +26,33 @@ export default function buildPaletteBoard(document, sharedFills, layerFills, sha
         y: 150,
     };
 
-    const sharedSubtext =
-        '[Some encouragement about using shared styles and how they are semantic, reusable, and can be updated in a single place.] ';
-
     const sharedStylesGroup = buildColumnGroup(
         'shared-palette-styles',
         [75, 75, 400, coordinates.y],
-        'Shared Styles',
-        sharedSubtext
+        loc('shared.title'),
+        loc('shared.subtitle')
     );
 
-    const sLFCGroup = buildSectionGroup(coordinates, 'shared_layer_fills', 'Fills', sharedFills);
+    const sLFCGroup = buildSectionGroup(coordinates, 'shared_layer_fills', loc('fillsHeader'), sharedFills);
 
-    const sLBCGroup = buildSectionGroup(coordinates, 'shared_layer_borders', 'Borders', sharedBorders, 'border');
+    const sLBCGroup = buildSectionGroup(coordinates, 'shared_layer_borders', loc('bordersHeader'), sharedBorders, 'border');
 
     addLayerIfPresent(sLFCGroup, sharedStylesGroup);
     addLayerIfPresent(sLBCGroup, sharedStylesGroup);
 
-    const uniqueSubtext =
-        '[Some admonishment about using one-off styles since they lack semantic content and have to be adjusted one-by-one, which is a nightmare.]';
-
     const uniqueStylesGroup = buildColumnGroup(
         'unique-palette-styles',
         [550, 75, 350, coordinates.y],
-        'Unique Styles',
-        uniqueSubtext
+        loc('unique.title'),
+        loc('unique.subtitle')
     );
 
     const sharedStylesY = coordinates.y;
     coordinates.y = 150;
 
-    const lFGroup = buildSectionGroup(coordinates, 'layer_fills', 'Fills', layerFills);
+    const lFGroup = buildSectionGroup(coordinates, 'layer_fills', loc('fillsHeader'), layerFills);
 
-    const lBGroup = buildSectionGroup(coordinates, 'layer_borders', 'Borders', layerBorders, 'border');
+    const lBGroup = buildSectionGroup(coordinates, 'layer_borders', loc('bordersHeader'), layerBorders, 'border');
 
     addLayerIfPresent(lFGroup, uniqueStylesGroup);
     addLayerIfPresent(lBGroup, uniqueStylesGroup);

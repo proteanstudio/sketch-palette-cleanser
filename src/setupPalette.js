@@ -5,6 +5,7 @@ import parseLayers from './methods/parseLayers';
 import processLayerColors from './methods/processLayerColors';
 import { PALETTE_NAME } from './utils/constants';
 import buildPaletteBoard from './methods/buildPaletteBoard';
+import loc from './utils/loc'
 
 const {
     Document,
@@ -13,8 +14,6 @@ const {
 } = sketch;
 
 export default function setupPalette() {
-    message('Building Color Pallete Document');
-
     const document = Document.getSelectedDocument();
 
     let sharedFills = getSharedFillStyles(document);
@@ -33,5 +32,5 @@ export default function setupPalette() {
 
     buildPaletteBoard(document, sharedFills, layerFills, sharedBorders, layerBorders);
 
-    message('Color Pallete Document Created');
+    message(loc('messages.paletteBuilt'));
 }

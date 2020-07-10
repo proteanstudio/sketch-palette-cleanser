@@ -1,6 +1,7 @@
 import sketch from 'sketch';
 import buildPaletteCell, { buildCellText } from './buildPaletteCell';
 import { BASE_CELL_HEIGHT, PALETTE_NAME } from '../utils/constants';
+import loc from '../utils/loc';
 
 const {
     find,
@@ -101,8 +102,7 @@ export default function updatePaletteItem(document, previousColor, updatedColor,
 
     cleanlyRemoveCell(cellToRemove, type);
 
-    message('Palette Updating');
     Settings.setDocumentSettingForKey(document, `shared-${type}s`, sharedColors);
     Settings.setDocumentSettingForKey(document, `layer-${type}s`, layerColors);
-    message('Palette Updated');
+    message(loc('messages.paletteUpdated'));
 }
