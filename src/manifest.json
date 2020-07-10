@@ -1,0 +1,32 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sketch-hq/SketchAPI/develop/docs/sketch-plugin-manifest-schema.json",
+    "icon": "icon.png",
+    "commands": [
+        {
+            "script": "./onColorChange.js",
+            "name": "onColorChange",
+            "handlers": {
+                "actions": {
+                    "onDocumentChanged": "onColorChange"
+                }
+            },
+            "identifier": "palette-cleanser.onColorChange-identifier"
+        },
+        {
+            "script": "./setupPalette.js",
+            "name": "Build Palette",
+            "shortcut": "cmd shift p",
+            "identifier": "palette-cleanser.setupPalette-identifier"
+        },
+        {
+            "script": "./removePalette.js",
+            "name": "Remove Palette",
+            "shortcut": "cmd alt p",
+            "identifier": "palette-cleanser.removePalette-identifier"
+        }
+    ],
+    "menu": {
+        "title": "palette-cleanser",
+        "items": ["palette-cleanser.setupPalette-identifier", "palette-cleanser.removePalette-identifier"]
+    }
+}

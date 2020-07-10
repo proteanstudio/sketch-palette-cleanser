@@ -1,0 +1,43 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sketch-hq/SketchAPI/develop/docs/sketch-plugin-manifest-schema.json",
+  "icon": "icon.png",
+  "commands": [
+    {
+      "script": "__onColorChange.js",
+      "name": "onColorChange",
+      "handlers": {
+        "actions": {
+          "onDocumentChanged": "onColorChange"
+        }
+      },
+      "identifier": "palette-cleanser.onColorChange-identifier"
+    },
+    {
+      "script": "__setupPalette.js",
+      "name": "Build Palette",
+      "shortcut": "cmd shift p",
+      "identifier": "palette-cleanser.setupPalette-identifier"
+    },
+    {
+      "script": "__removePalette.js",
+      "name": "Remove Palette",
+      "shortcut": "cmd alt p",
+      "identifier": "palette-cleanser.removePalette-identifier"
+    }
+  ],
+  "menu": {
+    "title": "palette-cleanser",
+    "items": [
+      "palette-cleanser.setupPalette-identifier",
+      "palette-cleanser.removePalette-identifier"
+    ]
+  },
+  "version": "0.1.0",
+  "description": "",
+  "name": "palette-cleanser",
+  "identifier": "palette-cleanser",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com//master/.appcast.xml",
+  "author": "Protean Studio",
+  "authorEmail": "admin@protean.studio"
+}
