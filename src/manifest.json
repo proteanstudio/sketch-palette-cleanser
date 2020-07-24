@@ -1,5 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/sketch-hq/SketchAPI/develop/docs/sketch-plugin-manifest-schema.json",
+    "name": "Palette Cleanser",
+    "description": "Get a full rundown of the colors you're using in your Sketch document.",
+    "author": "Protean Studio",
+    "homepage": "https://github.com/proteanstudio/palette-cleanser",
+    "version": "0.1.0",
+    "identifier": "com.example.sketch.plugin.palette-cleanser",
+    "appcast": "",
+    "compatibleVersion": "67.2",
     "icon": "icon.png",
     "commands": [
         {
@@ -26,7 +34,7 @@
         }
     ],
     "menu": {
-        "title": "palette-cleanser",
+        "title": "🎨 Palette Cleanser",
         "items": ["palette-cleanser.setupPalette-identifier", "palette-cleanser.removePalette-identifier"]
     }
 }

@@ -137,7 +137,7 @@ function removePalette() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PALETTE_NAME", function() { return PALETTE_NAME; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE_CELL_HEIGHT", function() { return BASE_CELL_HEIGHT; });
-var PALETTE_NAME = 'Document Color Palette (DO NOT CHANGE)';
+var PALETTE_NAME = '🎨 Palette Cleanser';
 var BASE_CELL_HEIGHT = 95;
 
 /***/ }),

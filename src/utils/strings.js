@@ -1,16 +1,16 @@
 export default {
     shared: {
-        title: 'Shared Styles',
-        subtitle: '[Some encouragement about using shared styles and how they are semantic, reusable, and can be updated in a single place.]'
+        title: 'Layer Style Colors',
+        subtitle: 'These colors are from fills and borders in your Layer Styles. They can be easily reused and updated throughout your designs.'
     },
     unique: {
-        title: 'Unique Styles',
-        subtitle: '[Some admonishment about using one-off styles since they lack semantic content and have to be adjusted one-by-one, which is a nightmare.]',
+        title: 'Unique Colors',
+        subtitle: 'These colors are from fills and borders in your document that aren\'t part of a Layer Style. Unique styles can work for simple designs, but it\'s hard to maintain a consistent palette as your design grows.'
     },
     fillsHeader: 'Fills',
     bordersHeader: 'Borders',
     messages: {
-        paletteBuilt: 'Color Pallete Document Created',
-        paletteUpdated: 'Pallete Updated',
+        paletteBuilt: '🎉 Your palette is ready 🎉',
+        paletteUpdated: '✅ Palette updated ✅',
     }
 }

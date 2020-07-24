@@ -464,7 +464,7 @@ function onColorChange(context) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PALETTE_NAME", function() { return PALETTE_NAME; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE_CELL_HEIGHT", function() { return BASE_CELL_HEIGHT; });
-var PALETTE_NAME = 'Document Color Palette (DO NOT CHANGE)';
+var PALETTE_NAME = '🎨 Palette Cleanser';
 var BASE_CELL_HEIGHT = 95;
 
 /***/ }),
@@ -500,18 +500,18 @@ function loc(key) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   shared: {
-    title: 'Shared Styles',
-    subtitle: '[Some encouragement about using shared styles and how they are semantic, reusable, and can be updated in a single place.]'
+    title: 'Layer Style Colors',
+    subtitle: 'These colors are from fills and borders in your Layer Styles. They can be easily reused and updated throughout your designs.'
   },
   unique: {
-    title: 'Unique Styles',
-    subtitle: '[Some admonishment about using one-off styles since they lack semantic content and have to be adjusted one-by-one, which is a nightmare.]'
+    title: 'Unique Colors',
+    subtitle: 'These colors are from fills and borders in your document that aren\'t part of a Layer Style. Unique styles can work for simple designs, but it\'s hard to maintain a consistent palette as your design grows.'
   },
   fillsHeader: 'Fills',
   bordersHeader: 'Borders',
   messages: {
-    paletteBuilt: 'Color Pallete Document Created',
-    paletteUpdated: 'Pallete Updated'
+    paletteBuilt: '🎉 Your palette is ready 🎉',
+    paletteUpdated: '✅ Palette updated ✅'
   }
 });
 
