@@ -1,3 +1,3 @@
-export const PALETTE_NAME = 'Document Color Palette (DO NOT CHANGE)';
+export const PALETTE_NAME = '🎨 Palette Cleanser';
 
 export const BASE_CELL_HEIGHT = 95;
