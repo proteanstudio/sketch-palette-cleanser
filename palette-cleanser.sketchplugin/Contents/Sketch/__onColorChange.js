@@ -141,6 +141,8 @@ function buildCellText(color, usages, thicknesses, localCoordinates) {
     style: {
       fontSize: 17,
       fontFamily: 'PT Sans',
+      kerning: null,
+      paragraphSpacing: 0,
       borders: []
     }
   }, {
@@ -150,6 +152,8 @@ function buildCellText(color, usages, thicknesses, localCoordinates) {
     style: {
       fontSize: 17,
       fontFamily: 'PT Sans',
+      kerning: null,
+      paragraphSpacing: 0,
       borders: []
     }
   }]; // currently need to be last layers in group
@@ -219,6 +223,8 @@ function buildPaletteCell(_ref, type, coordinates) {
           fontSize: 17,
           fontWeight: 12,
           fontFamily: 'PT Sans',
+          kerning: null,
+          paragraphSpacing: 0,
           borders: []
         },
         frame: new sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle(90, localCoordinates.y, 270, 20),
@@ -297,7 +303,7 @@ function updatePaletteCell(type, color, _ref) {
   (_parentLayer$layers = parentLayer.layers).push.apply(_parentLayer$layers, _toConsumableArray(textLayers));
 }
 
-function addNewCell(color, type, cellToRemove) {
+function addNewCell(color, type, cellToRemove, document) {
   var hasCellToRemove = !!cellToRemove;
   var parentLayer = find("[name=\"layer_".concat(type, "s\"]"))[0];
   var lastLayer = parentLayer.layers[parentLayer.layers.length - 1];
@@ -312,7 +318,8 @@ function addNewCell(color, type, cellToRemove) {
       layerBorders.frame.y += _utils_constants__WEBPACK_IMPORTED_MODULE_2__["BASE_CELL_HEIGHT"];
     }
 
-    find("[name=\"".concat(_utils_constants__WEBPACK_IMPORTED_MODULE_2__["PALETTE_NAME"], "\"]"))[0].frame.height += _utils_constants__WEBPACK_IMPORTED_MODULE_2__["BASE_CELL_HEIGHT"];
+    var paletteBoardId = Settings.documentSettingForKey(document, 'palette-board-id');
+    find("[id=\"".concat(paletteBoardId, "\"]"))[0].frame.height += _utils_constants__WEBPACK_IMPORTED_MODULE_2__["BASE_CELL_HEIGHT"];
   }
 
   parentLayer.layers.push(Object(_buildPaletteCell__WEBPACK_IMPORTED_MODULE_1__["default"])(color, type, {
@@ -371,7 +378,7 @@ function updatePaletteItem(document, previousColor, updatedColor, updatedThickne
       thicknesses: type === 'border' ? [updatedThickness] : undefined
     };
     layerColors[updatedColor] = colorData;
-    addNewCell([updatedColor, colorData], type, cellToRemove);
+    addNewCell([updatedColor, colorData], type, cellToRemove, document);
     cellToRemove = undefined;
   }
 
@@ -457,14 +464,12 @@ function onColorChange(context) {
 /*!********************************!*\
   !*** ./src/utils/constants.js ***!
   \********************************/
-/*! exports provided: PALETTE_NAME, BASE_CELL_HEIGHT */
+/*! exports provided: BASE_CELL_HEIGHT */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PALETTE_NAME", function() { return PALETTE_NAME; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE_CELL_HEIGHT", function() { return BASE_CELL_HEIGHT; });
-var PALETTE_NAME = '🎨 Palette Cleanser';
 var BASE_CELL_HEIGHT = 95;
 
 /***/ }),
@@ -499,6 +504,7 @@ function loc(key) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
+  paletteName: '🎨 Palette Cleanser',
   shared: {
     title: 'Layer Style Colors',
     subtitle: 'These colors are from fills and borders in your Layer Styles. They can be easily reused and updated throughout your designs.'

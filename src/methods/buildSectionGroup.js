@@ -13,6 +13,8 @@ export default function buildSectionGroup(coordinates, name, label, colorDict, t
                 fontSize: 30,
                 fontWeight: 12,
                 fontFamily: 'PT Sans',
+                kerning: null,
+                paragraphSpacing: 0,
                 borders: [],
             },
             frame: new sketch.Rectangle(0, coordinates.y, 300, 70),

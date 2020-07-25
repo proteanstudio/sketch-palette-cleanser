@@ -15,6 +15,8 @@ export function buildCellText(color, usages, thicknesses, localCoordinates) {
             style: {
                 fontSize: 17,
                 fontFamily: 'PT Sans',
+                kerning: null,
+                paragraphSpacing: 0,
                 borders: [],
             },
         },
@@ -25,6 +27,8 @@ export function buildCellText(color, usages, thicknesses, localCoordinates) {
             style: {
                 fontSize: 17,
                 fontFamily: 'PT Sans',
+                kerning: null,
+                paragraphSpacing: 0,
                 borders: [],
             },
         },
@@ -89,6 +93,8 @@ export default function buildPaletteCell([color, { sharedKeys, usages, thickness
                     fontSize: 17,
                     fontWeight: 12,
                     fontFamily: 'PT Sans',
+                    kerning: null,
+                    paragraphSpacing: 0,
                     borders: [],
                 },
                 frame: new sketch.Rectangle(90, localCoordinates.y, 270, 20),

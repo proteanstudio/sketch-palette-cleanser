@@ -1,15 +1,19 @@
 import sketch from 'sketch';
-import { PALETTE_NAME } from './utils/constants';
+
+const { Document, Settings } = sketch;
 
 export default function removePalette() {
-    const document = sketch.Document.getSelectedDocument();
+    const document = Document.getSelectedDocument();
 
     const artboards = document.pages.map((page) => page.layers).flat();
 
-    let paletteBoard = artboards.filter((ab) => ab.name === PALETTE_NAME)[0];
+    const paletteBoardId = Settings.documentSettingForKey(document, 'palette-board-id');
+
+    const paletteBoard = artboards.filter((ab) => ab.id === paletteBoardId)[0];
 
     paletteBoard && paletteBoard.remove();
 
+    Settings.setDocumentSettingForKey(document, 'palette-board-id', undefined);
     Settings.setDocumentSettingForKey(document, 'color-path-dictionary', undefined);
     Settings.setDocumentSettingForKey(document, 'shared-fills', undefined);
     Settings.setDocumentSettingForKey(document, 'shared-borders', undefined);

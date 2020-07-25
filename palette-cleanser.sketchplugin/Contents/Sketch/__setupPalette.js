@@ -153,6 +153,8 @@ function buildColumnGroup(name, frame, headerText, subText) {
         fontSize: 48,
         fontWeight: 9,
         fontFamily: 'PT Sans',
+        kerning: null,
+        paragraphSpacing: 0,
         borders: []
       }
     }, {
@@ -161,6 +163,8 @@ function buildColumnGroup(name, frame, headerText, subText) {
       style: {
         fontSize: 14,
         fontFamily: 'PT Sans',
+        kerning: null,
+        paragraphSpacing: 0,
         borders: []
       },
       frame: new sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle(0, 60, 350, 20),
@@ -186,47 +190,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./buildSectionGroup */ "./src/methods/buildSectionGroup.js");
 /* harmony import */ var _addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addLayerIfPresent */ "./src/methods/addLayerIfPresent.js");
 /* harmony import */ var _buildColumnGroup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./buildColumnGroup */ "./src/methods/buildColumnGroup.js");
-/* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/constants */ "./src/utils/constants.js");
-/* harmony import */ var _utils_loc__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/loc */ "./src/utils/loc.js");
+/* harmony import */ var _utils_loc__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/loc */ "./src/utils/loc.js");
 
 
 
 
 
-
-var Rectangle = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle,
+var Settings = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Settings,
+    Rectangle = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle,
     Artboard = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Artboard;
 function buildPaletteBoard(document, sharedFills, layerFills, sharedBorders, layerBorders) {
   var artboards = document.pages.map(function (page) {
     return page.layers;
   }).flat();
+  var paletteBoardId = Settings.documentSettingForKey(document, 'palette-board-id');
   var paletteBoard = artboards.filter(function (ab) {
-    return ab.name === _utils_constants__WEBPACK_IMPORTED_MODULE_4__["PALETTE_NAME"];
+    return ab.id === paletteBoardId;
   })[0];
 
   if (!paletteBoard) {
     var boardFrame = new Rectangle(-4000, 0, 1000, 2000);
     paletteBoard = new Artboard({
-      name: _utils_constants__WEBPACK_IMPORTED_MODULE_4__["PALETTE_NAME"],
+      name: Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('paletteName'),
       flowStartPoint: true,
       frame: boardFrame
     });
+    Settings.setDocumentSettingForKey(document, 'palette-board-id', paletteBoard.id);
   }
 
   var coordinates = {
     x: 0,
     y: 150
   };
-  var sharedStylesGroup = Object(_buildColumnGroup__WEBPACK_IMPORTED_MODULE_3__["default"])('shared-palette-styles', [75, 75, 400, coordinates.y], Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('shared.title'), Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('shared.subtitle'));
-  var sLFCGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'shared_layer_fills', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('fillsHeader'), sharedFills);
-  var sLBCGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'shared_layer_borders', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('bordersHeader'), sharedBorders, 'border');
+  var sharedStylesGroup = Object(_buildColumnGroup__WEBPACK_IMPORTED_MODULE_3__["default"])('shared-palette-styles', [75, 75, 400, coordinates.y], Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('shared.title'), Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('shared.subtitle'));
+  var sLFCGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'shared_layer_fills', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('fillsHeader'), sharedFills);
+  var sLBCGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'shared_layer_borders', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('bordersHeader'), sharedBorders, 'border');
   Object(_addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__["default"])(sLFCGroup, sharedStylesGroup);
   Object(_addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__["default"])(sLBCGroup, sharedStylesGroup);
-  var uniqueStylesGroup = Object(_buildColumnGroup__WEBPACK_IMPORTED_MODULE_3__["default"])('unique-palette-styles', [550, 75, 350, coordinates.y], Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('unique.title'), Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('unique.subtitle'));
+  var uniqueStylesGroup = Object(_buildColumnGroup__WEBPACK_IMPORTED_MODULE_3__["default"])('unique-palette-styles', [550, 75, 350, coordinates.y], Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('unique.title'), Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('unique.subtitle'));
   var sharedStylesY = coordinates.y;
   coordinates.y = 150;
-  var lFGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'layer_fills', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('fillsHeader'), layerFills);
-  var lBGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'layer_borders', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_5__["default"])('bordersHeader'), layerBorders, 'border');
+  var lFGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'layer_fills', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('fillsHeader'), layerFills);
+  var lBGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'layer_borders', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('bordersHeader'), layerBorders, 'border');
   Object(_addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__["default"])(lFGroup, uniqueStylesGroup);
   Object(_addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__["default"])(lBGroup, uniqueStylesGroup);
   paletteBoard.layers = [sharedStylesGroup, uniqueStylesGroup].filter(function (group) {
@@ -286,6 +291,8 @@ function buildCellText(color, usages, thicknesses, localCoordinates) {
     style: {
       fontSize: 17,
       fontFamily: 'PT Sans',
+      kerning: null,
+      paragraphSpacing: 0,
       borders: []
     }
   }, {
@@ -295,6 +302,8 @@ function buildCellText(color, usages, thicknesses, localCoordinates) {
     style: {
       fontSize: 17,
       fontFamily: 'PT Sans',
+      kerning: null,
+      paragraphSpacing: 0,
       borders: []
     }
   }]; // currently need to be last layers in group
@@ -364,6 +373,8 @@ function buildPaletteCell(_ref, type, coordinates) {
           fontSize: 17,
           fontWeight: 12,
           fontFamily: 'PT Sans',
+          kerning: null,
+          paragraphSpacing: 0,
           borders: []
         },
         frame: new sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle(90, localCoordinates.y, 270, 20),
@@ -417,6 +428,8 @@ function buildSectionGroup(coordinates, name, label, colorDict) {
       fontSize: 30,
       fontWeight: 12,
       fontFamily: 'PT Sans',
+      kerning: null,
+      paragraphSpacing: 0,
       borders: []
     },
     frame: new sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle(0, coordinates.y, 300, 70)
@@ -529,6 +542,8 @@ function getSharedFillStyles(document) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return parseLayers; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -541,12 +556,14 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function parseLayers(document, PALETTE_NAME) {
+
+function parseLayers(document) {
   var layerFills = {};
   var layerBorders = {};
   var colorPathDictionary = document.pages.reduce(function (acc, page, pageIndex) {
+    var paletteBoardId = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Settings.documentSettingForKey(document, 'palette-board-id');
     page.layers.filter(function (ab) {
-      return ab.name !== PALETTE_NAME;
+      return ab.id !== paletteBoardId;
     }).forEach(function (ab, abIndex) {
       var layerIndeces = [];
 
@@ -689,10 +706,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methods_getSharedBorderStyles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methods/getSharedBorderStyles */ "./src/methods/getSharedBorderStyles.js");
 /* harmony import */ var _methods_parseLayers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./methods/parseLayers */ "./src/methods/parseLayers.js");
 /* harmony import */ var _methods_processLayerColors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./methods/processLayerColors */ "./src/methods/processLayerColors.js");
-/* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils/constants */ "./src/utils/constants.js");
-/* harmony import */ var _methods_buildPaletteBoard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./methods/buildPaletteBoard */ "./src/methods/buildPaletteBoard.js");
-/* harmony import */ var _utils_loc__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/loc */ "./src/utils/loc.js");
-
+/* harmony import */ var _methods_buildPaletteBoard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./methods/buildPaletteBoard */ "./src/methods/buildPaletteBoard.js");
+/* harmony import */ var _utils_loc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils/loc */ "./src/utils/loc.js");
 
 
 
@@ -708,7 +723,7 @@ function setupPalette() {
   var sharedFills = Object(_methods_getSharedFillStyles__WEBPACK_IMPORTED_MODULE_1__["default"])(document);
   var sharedBorders = Object(_methods_getSharedBorderStyles__WEBPACK_IMPORTED_MODULE_2__["default"])(document);
 
-  var _parseLayers = Object(_methods_parseLayers__WEBPACK_IMPORTED_MODULE_3__["default"])(document, _utils_constants__WEBPACK_IMPORTED_MODULE_5__["PALETTE_NAME"]),
+  var _parseLayers = Object(_methods_parseLayers__WEBPACK_IMPORTED_MODULE_3__["default"])(document),
       colorPathDictionary = _parseLayers.colorPathDictionary,
       layerFills = _parseLayers.layerFills,
       layerBorders = _parseLayers.layerBorders;
@@ -720,8 +735,8 @@ function setupPalette() {
   Settings.setDocumentSettingForKey(document, 'shared-borders', sharedBorders);
   Settings.setDocumentSettingForKey(document, 'layer-fills', layerFills);
   Settings.setDocumentSettingForKey(document, 'layer-borders', layerBorders);
-  Object(_methods_buildPaletteBoard__WEBPACK_IMPORTED_MODULE_6__["default"])(document, sharedFills, layerFills, sharedBorders, layerBorders);
-  message(Object(_utils_loc__WEBPACK_IMPORTED_MODULE_7__["default"])('messages.paletteBuilt'));
+  Object(_methods_buildPaletteBoard__WEBPACK_IMPORTED_MODULE_5__["default"])(document, sharedFills, layerFills, sharedBorders, layerBorders);
+  message(Object(_utils_loc__WEBPACK_IMPORTED_MODULE_6__["default"])('messages.paletteBuilt'));
 }
 
 /***/ }),
@@ -769,14 +784,12 @@ function arrayMatches() {
 /*!********************************!*\
   !*** ./src/utils/constants.js ***!
   \********************************/
-/*! exports provided: PALETTE_NAME, BASE_CELL_HEIGHT */
+/*! exports provided: BASE_CELL_HEIGHT */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PALETTE_NAME", function() { return PALETTE_NAME; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE_CELL_HEIGHT", function() { return BASE_CELL_HEIGHT; });
-var PALETTE_NAME = '🎨 Palette Cleanser';
 var BASE_CELL_HEIGHT = 95;
 
 /***/ }),
@@ -811,6 +824,7 @@ function loc(key) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
+  paletteName: '🎨 Palette Cleanser',
   shared: {
     title: 'Layer Style Colors',
     subtitle: 'These colors are from fills and borders in your Layer Styles. They can be easily reused and updated throughout your designs.'

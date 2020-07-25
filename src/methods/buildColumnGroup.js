@@ -12,6 +12,8 @@ export default function buildColumnGroup(name, frame, headerText, subText) {
                     fontSize: 48,
                     fontWeight: 9,
                     fontFamily: 'PT Sans',
+                    kerning: null,
+                    paragraphSpacing: 0,
                     borders: [],
                 },
             },
@@ -21,6 +23,8 @@ export default function buildColumnGroup(name, frame, headerText, subText) {
                 style: {
                     fontSize: 14,
                     fontFamily: 'PT Sans',
+                    kerning: null,
+                    paragraphSpacing: 0,
                     borders: [],
                 },
                 frame: new sketch.Rectangle(0, 60, 350, 20),
