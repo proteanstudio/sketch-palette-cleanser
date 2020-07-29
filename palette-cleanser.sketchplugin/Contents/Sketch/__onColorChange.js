@@ -143,6 +143,7 @@ function buildCellText(color, usages, thicknesses, localCoordinates) {
       fontFamily: 'PT Sans',
       kerning: null,
       paragraphSpacing: 0,
+      textColor: '#000000ff',
       borders: []
     }
   }, {
@@ -154,6 +155,7 @@ function buildCellText(color, usages, thicknesses, localCoordinates) {
       fontFamily: 'PT Sans',
       kerning: null,
       paragraphSpacing: 0,
+      textColor: '#000000ff',
       borders: []
     }
   }]; // currently need to be last layers in group
@@ -225,6 +227,7 @@ function buildPaletteCell(_ref, type, coordinates) {
           fontFamily: 'PT Sans',
           kerning: null,
           paragraphSpacing: 0,
+          textColor: '#000000ff',
           borders: []
         },
         frame: new sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle(90, localCoordinates.y, 270, 20),

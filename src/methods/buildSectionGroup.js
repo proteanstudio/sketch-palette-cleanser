@@ -15,6 +15,7 @@ export default function buildSectionGroup(coordinates, name, label, colorDict, t
                 fontFamily: 'PT Sans',
                 kerning: null,
                 paragraphSpacing: 0,
+textColor: '#000000ff',
                 borders: [],
             },
             frame: new sketch.Rectangle(0, coordinates.y, 300, 70),
