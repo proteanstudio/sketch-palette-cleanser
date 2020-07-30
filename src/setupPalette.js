@@ -3,9 +3,8 @@ import getSharedFillStyles from './methods/getSharedFillStyles';
 import getSharedBorderStyles from './methods/getSharedBorderStyles';
 import parseLayers from './methods/parseLayers';
 import processLayerColors from './methods/processLayerColors';
-import { PALETTE_NAME } from './utils/constants';
 import buildPaletteBoard from './methods/buildPaletteBoard';
-import loc from './utils/loc'
+import loc from './utils/loc';
 
 const {
     Document,
@@ -19,7 +18,7 @@ export default function setupPalette() {
     let sharedFills = getSharedFillStyles(document);
     let sharedBorders = getSharedBorderStyles(document);
 
-    let { colorPathDictionary, layerFills, layerBorders } = parseLayers(document, PALETTE_NAME);
+    let { colorPathDictionary, layerFills, layerBorders } = parseLayers(document);
 
     processLayerColors(sharedFills, layerFills);
     processLayerColors(sharedBorders, layerBorders);

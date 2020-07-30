@@ -1,6 +1,6 @@
 import sketch from 'sketch';
 import buildPaletteCell, { buildCellText } from './buildPaletteCell';
-import { BASE_CELL_HEIGHT, PALETTE_NAME } from '../utils/constants';
+import { BASE_CELL_HEIGHT } from '../utils/constants';
 import loc from '../utils/loc';
 
 const {
@@ -22,7 +22,7 @@ function updatePaletteCell(type, color, { usages, thicknesses }) {
     parentLayer.layers.push(...textLayers);
 }
 
-function addNewCell(color, type, cellToRemove) {
+function addNewCell(color, type, cellToRemove, document) {
     const hasCellToRemove = !!cellToRemove;
     let parentLayer = find(`[name="layer_${type}s"]`)[0];
 
@@ -38,7 +38,8 @@ function addNewCell(color, type, cellToRemove) {
             layerBorders.frame.y += BASE_CELL_HEIGHT;
         }
 
-        find(`[name="${PALETTE_NAME}"]`)[0].frame.height += BASE_CELL_HEIGHT;
+        const paletteBoardId = Settings.documentSettingForKey(document, 'palette-board-id');
+        find(`[id="${paletteBoardId}"]`)[0].frame.height += BASE_CELL_HEIGHT;
     }
 
     parentLayer.layers.push(buildPaletteCell(color, type, { y }));
@@ -96,7 +97,7 @@ export default function updatePaletteItem(document, previousColor, updatedColor,
             thicknesses: type === 'border' ? [updatedThickness] : undefined,
         };
         layerColors[updatedColor] = colorData;
-        addNewCell([updatedColor, colorData], type, cellToRemove);
+        addNewCell([updatedColor, colorData], type, cellToRemove, document);
         cellToRemove = undefined;
     }
 

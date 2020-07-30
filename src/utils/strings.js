@@ -1,4 +1,5 @@
 export default {
+    paletteName: '🎨 Palette Cleanser',
     shared: {
         title: 'Layer Style Colors',
         subtitle: 'These colors are from fills and borders in your Layer Styles. They can be easily reused and updated throughout your designs.'

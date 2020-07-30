@@ -1,9 +1,12 @@
-export default function parseLayers(document, PALETTE_NAME) {
+import sketch from 'sketch';
+
+export default function parseLayers(document) {
     let layerFills = {};
     let layerBorders = {};
     const colorPathDictionary = document.pages.reduce((acc, page, pageIndex) => {
+        const paletteBoardId = sketch.Settings.documentSettingForKey(document, 'palette-board-id');
         page.layers
-            .filter((ab) => ab.name !== PALETTE_NAME)
+            .filter((ab) => ab.id !== paletteBoardId)
             .forEach((ab, abIndex) => {
                 let layerIndeces = [];
                 function layerLoop(layer, layerIndex) {

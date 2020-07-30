@@ -2,23 +2,25 @@ import sketch from 'sketch';
 import buildSectionGroup from './buildSectionGroup';
 import addLayerIfPresent from './addLayerIfPresent';
 import buildColumnGroup from './buildColumnGroup';
-import { PALETTE_NAME } from '../utils/constants';
 import loc from '../utils/loc';
 
-const { Rectangle, Artboard } = sketch;
+const { Settings, Rectangle, Artboard } = sketch;
 
 export default function buildPaletteBoard(document, sharedFills, layerFills, sharedBorders, layerBorders) {
     const artboards = document.pages.map((page) => page.layers).flat();
 
-    let paletteBoard = artboards.filter((ab) => ab.name === PALETTE_NAME)[0];
+    const paletteBoardId = Settings.documentSettingForKey(document, 'palette-board-id');
+    let paletteBoard = artboards.filter((ab) => ab.id === paletteBoardId)[0];
 
     if (!paletteBoard) {
         const boardFrame = new Rectangle(-4000, 0, 1000, 2000);
         paletteBoard = new Artboard({
-            name: PALETTE_NAME,
+            name: loc('paletteName'),
             flowStartPoint: true,
             frame: boardFrame,
         });
+
+        Settings.setDocumentSettingForKey(document, 'palette-board-id', paletteBoard.id);
     }
 
     let coordinates = {
@@ -35,7 +37,13 @@ export default function buildPaletteBoard(document, sharedFills, layerFills, sha
 
     const sLFCGroup = buildSectionGroup(coordinates, 'shared_layer_fills', loc('fillsHeader'), sharedFills);
 
-    const sLBCGroup = buildSectionGroup(coordinates, 'shared_layer_borders', loc('bordersHeader'), sharedBorders, 'border');
+    const sLBCGroup = buildSectionGroup(
+        coordinates,
+        'shared_layer_borders',
+        loc('bordersHeader'),
+        sharedBorders,
+        'border'
+    );
 
     addLayerIfPresent(sLFCGroup, sharedStylesGroup);
     addLayerIfPresent(sLBCGroup, sharedStylesGroup);
