@@ -1,6 +1,6 @@
 # Palette Cleanser
 
-<!-- ![Palette Cleanser logo](assets/palette-cleanser-icon.png) -->
+<img src="assets/icon-large.png" width="256" alt="Palette Cleanser logo"/>
 
 Get a full rundown of the colors you're using in your Sketch document. 
 
