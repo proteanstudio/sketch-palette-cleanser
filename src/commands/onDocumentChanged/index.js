@@ -59,8 +59,9 @@ export function onDocumentChanged(context) {
         return;
     }
 
-    if (finalSegment === 'color') {
-        handleChangedColor(changePath, storedColorPathDict, document);
+    if (finalSegment === 'color' || finalSegment === 'enabled') {
+        const modifiedCP = finalSegment === 'enabled' ? `${changePath.split('enabled')[0]}color` : changePath;
+        handleChangedColor(modifiedCP, storedColorPathDict, document);
         return;
     }
 

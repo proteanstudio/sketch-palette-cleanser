@@ -15,8 +15,8 @@ export default function parseLayers(document) {
                     }
 
                     layer.style.fills.forEach((fill, fillIndex) => {
-                        const { color } = fill;
-                        if (color) {
+                        const { color, enabled } = fill;
+                        if (color && enabled) {
                             const additionalLayerPath = layerIndeces.reduce(
                                 (acc, index) => `${acc}.layers[${index}]`,
                                 ''
@@ -37,8 +37,8 @@ export default function parseLayers(document) {
                     });
 
                     layer.style.borders.forEach((border, borderIndex) => {
-                        const { color, thickness } = border;
-                        if (color) {
+                        const { color, thickness, enabled } = border;
+                        if (color && enabled) {
                             const additionalLayerPath = layerIndeces.reduce(
                                 (acc, index) => `${acc}.layers[${index}]`,
                                 ''

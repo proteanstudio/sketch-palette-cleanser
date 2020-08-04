@@ -13,8 +13,13 @@ export default function handleChangedColor(changePath, colorPathDict, document) 
         return acc.layers[itemIndex];
     }, document.pages[pageIndex].layers[abIndex]);
 
-    const updatedColor = updatedStyle.color;
-    const updatedThickness = updatedStyle.thickness;
+    let updatedColor;
+    let updatedThickness;
+
+    if (updatedStyle.enabled) {
+        updatedColor = updatedStyle.color;
+        updatedThickness = updatedStyle.thickness;
+    }
 
     const previousColor = colorPathDict[changePath];
     colorPathDict[changePath] = updatedColor;

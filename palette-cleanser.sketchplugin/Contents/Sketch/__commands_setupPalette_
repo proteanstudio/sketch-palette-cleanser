@@ -450,9 +450,10 @@ function parseLayers(document) {
         }
 
         layer.style.fills.forEach(function (fill, fillIndex) {
-          var color = fill.color;
+          var color = fill.color,
+              enabled = fill.enabled;
 
-          if (color) {
+          if (color && enabled) {
             var additionalLayerPath = layerIndeces.reduce(function (acc, index) {
               return "".concat(acc, ".layers[").concat(index, "]");
             }, '');
@@ -471,9 +472,10 @@ function parseLayers(document) {
         });
         layer.style.borders.forEach(function (border, borderIndex) {
           var color = border.color,
-              thickness = border.thickness;
+              thickness = border.thickness,
+              enabled = border.enabled;
 
-          if (color) {
+          if (color && enabled) {
             var additionalLayerPath = layerIndeces.reduce(function (acc, index) {
               return "".concat(acc, ".layers[").concat(index, "]");
             }, '');
