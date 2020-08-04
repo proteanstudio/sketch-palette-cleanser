@@ -1,10 +1,10 @@
 import sketch from 'sketch';
-import getSharedFillStyles from './methods/getSharedFillStyles';
-import getSharedBorderStyles from './methods/getSharedBorderStyles';
-import parseLayers from './methods/parseLayers';
-import processLayerColors from './methods/processLayerColors';
-import buildPaletteBoard from './methods/buildPaletteBoard';
-import loc from './utils/loc';
+import getSharedFillStyles from './getSharedFillStyles';
+import getSharedBorderStyles from './getSharedBorderStyles';
+import parseLayers from './parseLayers';
+import processLayerColors from './processLayerColors';
+import buildPaletteBoard from './buildPaletteBoard';
+import loc from '../../utils/loc';
 
 const {
     Document,
