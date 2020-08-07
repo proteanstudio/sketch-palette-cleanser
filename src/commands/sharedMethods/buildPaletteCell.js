@@ -1,5 +1,36 @@
 import sketch from 'sketch';
-import { BASE_CELL_HEIGHT } from '../utils/constants';
+import { BASE_CELL_HEIGHT } from '../../utils/constants';
+
+export function buildCellSharedKeyText(sharedKeys, localCoordinates, cellHeight) {
+    let colorLayers = [];
+    if (Array.isArray(sharedKeys)) {
+        sharedKeys.forEach((key) => {
+            colorLayers.push({
+                type: sketch.Types.Text,
+                text: key,
+                style: {
+                    fontSize: 17,
+                    fontWeight: 12,
+                    fontFamily: 'PT Sans',
+                    kerning: null,
+                    paragraphSpacing: 0,
+                    textColor: '#000000ff',
+                    borders: [],
+                },
+                frame: new sketch.Rectangle(90, localCoordinates.y, 270, 20),
+                fixedWidth: true,
+            });
+
+            const charLimit = 33; // May need adjustments
+            const yAdjustment = Math.ceil(key.length / charLimit) * 20;
+            localCoordinates.y += yAdjustment;
+            cellHeight += yAdjustment;
+        });
+    }
+
+    localCoordinates.y += 7;
+    return colorLayers;
+}
 
 export function buildCellText(color, usages, thicknesses, localCoordinates) {
     const thicknessPrefix = thicknesses ? `${thicknesses.join('px, ')}px ` : '';
@@ -86,35 +117,10 @@ export default function buildPaletteCell([color, { sharedKeys, usages, thickness
 
     let cellHeight = BASE_CELL_HEIGHT;
 
-    if (Array.isArray(sharedKeys)) {
-        sharedKeys.forEach((key) => {
-            colorLayers.push({
-                type: sketch.Types.Text,
-                text: key,
-                style: {
-                    fontSize: 17,
-                    fontWeight: 12,
-                    fontFamily: 'PT Sans',
-                    kerning: null,
-                    paragraphSpacing: 0,
-                    textColor: '#000000ff',
-                    borders: [],
-                },
-                frame: new sketch.Rectangle(90, localCoordinates.y, 270, 20),
-                fixedWidth: true,
-            });
+    const sharedKeyLayers = buildCellSharedKeyText(sharedKeys, localCoordinates, cellHeight);
 
-            const charLimit = 33; // May need adjustments
-            const yAdjustment = Math.ceil(key.length / charLimit) * 20;
-            localCoordinates.y += yAdjustment;
-            cellHeight += yAdjustment;
-        });
-    }
-
-    localCoordinates.y += 10;
-
-    const textLayers = buildCellText(color, usages, thicknesses, localCoordinates);
-    colorLayers.push(...textLayers);
+    const textLayers = buildCellText(color, usages, thicknesses, localCoordinates, sharedKeys);
+    colorLayers.push(...sharedKeyLayers, ...textLayers);
 
     const colorGroup = new sketch.Group({
         name: `${type}: ${color}`,

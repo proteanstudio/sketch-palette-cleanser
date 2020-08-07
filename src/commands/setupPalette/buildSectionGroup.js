@@ -1,5 +1,5 @@
 import sketch from 'sketch';
-import buildPaletteCell from './buildPaletteCell';
+import buildPaletteCell from '../sharedMethods/buildPaletteCell';
 
 export default function buildSectionGroup(coordinates, name, label, colorDict, type = 'fill') {
     const colors = Object.entries(colorDict);

@@ -22,10 +22,13 @@
         "build": "skpm-build",
         "watch": "skpm-build --watch",
         "start": "skpm-build --watch --run",
-        "postinstall": "npm run build && skpm-link"
+        "postinstall": "npm run build && skpm-link",
+        "format": "prettier --check 'src/'",
+        "format:fix": "prettier --write 'src/'"
     },
     "devDependencies": {
-        "@skpm/builder": "^0.7.0"
+        "@skpm/builder": "^0.7.0",
+        "prettier": "2.0.5"
     },
     "author": "Protean Studio <admin@protean.studio>"
 }

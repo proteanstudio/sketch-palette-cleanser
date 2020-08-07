@@ -1,0 +1,1122 @@
+var globalThis = this;
+var global = this;
+function __skpm_run (key, context) {
+  globalThis.context = context;
+  try {
+
+var exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/commands/onDocumentChanged/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/commands/onDocumentChanged/handleChangedColor.js":
+/*!**************************************************************!*\
+  !*** ./src/commands/onDocumentChanged/handleChangedColor.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return handleChangedColor; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _updatePaletteItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./updatePaletteItem */ "./src/commands/onDocumentChanged/updatePaletteItem.js");
+function _toArray(arr) { return _arrayWithHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+function handleChangedColor(changePath, colorPathDict, document) {
+  var _changePath$match = changePath.match(/\d+/g),
+      _changePath$match2 = _toArray(_changePath$match),
+      pageIndex = _changePath$match2[0],
+      abIndex = _changePath$match2[1],
+      layerAndStyleIndeces = _changePath$match2.slice(2);
+
+  var styleType = changePath.includes('border') ? 'border' : 'fill';
+  var updatedStyle = layerAndStyleIndeces.reduce(function (acc, itemIndex, index, arr) {
+    if (index === arr.length - 1) {
+      // TODO: Account for border thickness changes
+      return acc.style["".concat(styleType, "s")][itemIndex];
+    }
+
+    return acc.layers[itemIndex];
+  }, document.pages[pageIndex].layers[abIndex]);
+  var updatedColor;
+  var updatedThickness;
+
+  if (updatedStyle.enabled) {
+    updatedColor = updatedStyle.color;
+    updatedThickness = updatedStyle.thickness;
+  }
+
+  var previousColor = colorPathDict[changePath];
+  colorPathDict[changePath] = updatedColor;
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Settings.setDocumentSettingForKey(document, 'color-path-dictionary', colorPathDict);
+  Object(_updatePaletteItem__WEBPACK_IMPORTED_MODULE_1__["default"])(document, previousColor, updatedColor, updatedThickness, styleType);
+}
+
+/***/ }),
+
+/***/ "./src/commands/onDocumentChanged/handleLayerAssignment.js":
+/*!*****************************************************************!*\
+  !*** ./src/commands/onDocumentChanged/handleLayerAssignment.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return handleChangedLayer; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _updatePaletteItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./updatePaletteItem */ "./src/commands/onDocumentChanged/updatePaletteItem.js");
+function _toArray(arr) { return _arrayWithHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var Settings = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Settings;
+
+function addSharedStyle(fillColor, borderColor, sharedStyleId, document) {
+  var fill = fillColor === null || fillColor === void 0 ? void 0 : fillColor.color;
+  var border = borderColor === null || borderColor === void 0 ? void 0 : borderColor.color;
+  var sharedItem = document.sharedLayerStyles.find(function (style) {
+    return style.id === sharedStyleId;
+  });
+  var sharedFillColors = Settings.documentSettingForKey(document, 'shared-fills');
+  var sharedBorderColors = Settings.documentSettingForKey(document, 'shared-borders');
+  var layerFillColors = Settings.documentSettingForKey(document, 'layer-fills');
+  var layerBorderColors = Settings.documentSettingForKey(document, 'layer-borders');
+
+  if (fill) {
+    if (sharedFillColors[fill]) {
+      sharedFillColors[fill].sharedKeys.push(sharedItem.name);
+    } else {
+      var colorObj = _objectSpread({}, layerFillColors[fill]);
+
+      colorObj.sharedKeys = [sharedItem.name];
+      sharedFillColors[fill] = colorObj;
+    }
+
+    Settings.setDocumentSettingForKey(document, 'shared-fills', sharedFillColors);
+  }
+
+  if (border) {
+    if (sharedBorderColors[border]) {
+      sharedBorderColors[border].sharedKeys.push(sharedItem.name);
+    } else {
+      var _colorObj = _objectSpread({}, layerBorderColors[border]);
+
+      _colorObj.sharedKeys = [sharedItem.name];
+      sharedBorderColors[border] = _colorObj;
+    }
+
+    Settings.setDocumentSettingForKey(document, 'shared-borders', sharedBorderColors);
+  }
+}
+
+function handleChangedLayer(changePath, colorPathDict, document, isNewSharedStyle) {
+  var _changePath$match = changePath.match(/\d+/g),
+      _changePath$match2 = _toArray(_changePath$match),
+      pageIndex = _changePath$match2[0],
+      abIndex = _changePath$match2[1],
+      layerAndStyleIndeces = _changePath$match2.slice(2);
+
+  var basePath = changePath.split('.sharedStyleID')[0];
+
+  var _layerAndStyleIndeces = layerAndStyleIndeces.reduce(function (acc, itemIndex, index, arr) {
+    if (index === arr.length - 1) {
+      var _layer = acc.layers[itemIndex];
+      return {
+        fillColor: _layer.style.fills[0],
+        borderColor: _layer.style.borders[0],
+        sharedStyleId: _layer.sharedStyleId
+      };
+    }
+
+    return layer;
+  }, document.pages[pageIndex].layers[abIndex]),
+      fillColor = _layerAndStyleIndeces.fillColor,
+      borderColor = _layerAndStyleIndeces.borderColor,
+      sharedStyleId = _layerAndStyleIndeces.sharedStyleId;
+
+  isNewSharedStyle && addSharedStyle(fillColor, borderColor, sharedStyleId, document);
+  var fillPath = "".concat(basePath, ".style.fills[0].color");
+  var previousFillColor = colorPathDict[fillPath];
+  var updatedFillColor;
+
+  if (fillColor) {
+    updatedFillColor = fillColor.color;
+    colorPathDict[fillPath] = updatedFillColor;
+  } else if (previousFillColor) {
+    delete colorPathDict[fillPath];
+  }
+
+  Object(_updatePaletteItem__WEBPACK_IMPORTED_MODULE_1__["default"])(document, previousFillColor, updatedFillColor, undefined, 'fill', isNewSharedStyle);
+  var borderPath = "".concat(basePath, ".style.borders[0].color");
+  var previousBorderColor = colorPathDict[borderPath];
+  var updatedBorderColor;
+  var updatedBorderThickness;
+
+  if (borderColor) {
+    updatedBorderColor = borderColor.color;
+    colorPathDict[borderPath] = updatedBorderColor;
+    updatedBorderThickness = borderColor.thickness;
+  } else if (previousBorderColor) {
+    delete colorPathDict[borderPath];
+  }
+
+  Object(_updatePaletteItem__WEBPACK_IMPORTED_MODULE_1__["default"])(document, previousBorderColor, updatedBorderColor, updatedBorderThickness, 'border', isNewSharedStyle);
+  Settings.setDocumentSettingForKey(document, 'color-path-dictionary', colorPathDict);
+}
+
+/***/ }),
+
+/***/ "./src/commands/onDocumentChanged/handleLayerDeletion.js":
+/*!***************************************************************!*\
+  !*** ./src/commands/onDocumentChanged/handleLayerDeletion.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return handleLayerDeletion; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _updatePaletteItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./updatePaletteItem */ "./src/commands/onDocumentChanged/updatePaletteItem.js");
+/* harmony import */ var _utils_arrayMatches__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/arrayMatches */ "./src/utils/arrayMatches.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+function handleLayerDeletion(changePath, colorPathDict, document) {
+  var changePathIndeces = changePath.match(/\d+/g).map(Number);
+  Object.entries(colorPathDict).forEach(function (_ref) {
+    var _ref2 = _slicedToArray(_ref, 2),
+        path = _ref2[0],
+        color = _ref2[1];
+
+    var pathIndeces = path.match(/\d+/g).map(Number);
+    var updatedIndeces = pathIndeces.slice(0, 1);
+
+    for (var i = 1; i < pathIndeces.length; i++) {
+      var currentIndex = pathIndeces[i];
+      var currentChangePathIndex = changePathIndeces[i];
+
+      if (currentIndex < currentChangePathIndex) {
+        break;
+      }
+
+      if (currentIndex > currentChangePathIndex) {
+        var _ret = function () {
+          updatedIndeces = [].concat(_toConsumableArray(updatedIndeces), [currentIndex - 1], _toConsumableArray(pathIndeces.slice(i + 1)));
+          delete colorPathDict[path];
+          var matchIndex = 0;
+          var updatedPath = path.replace(/\d+/g, function () {
+            return updatedIndeces[matchIndex++];
+          });
+          colorPathDict[updatedPath] = color;
+          return "break";
+        }();
+
+        if (_ret === "break") break;
+      }
+
+      if (Object(_utils_arrayMatches__WEBPACK_IMPORTED_MODULE_2__["default"])(changePathIndeces, updatedIndeces).matches) {
+        var styleType = path.includes('border') ? 'border' : 'fill';
+        Object(_updatePaletteItem__WEBPACK_IMPORTED_MODULE_1__["default"])(document, color, undefined, undefined, styleType);
+        delete colorPathDict[path];
+        break;
+      }
+
+      updatedIndeces.push(currentIndex);
+    }
+  });
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Settings.setDocumentSettingForKey(document, 'color-path-dictionary', colorPathDict);
+}
+
+/***/ }),
+
+/***/ "./src/commands/onDocumentChanged/handleLayerHierachyChange.js":
+/*!*********************************************************************!*\
+  !*** ./src/commands/onDocumentChanged/handleLayerHierachyChange.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return handleLayerHierarchyChange; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+function handleLayerHierarchyChange(changePaths, colorPathDict, document) {
+  var _changePaths$map = changePaths.map(function (path) {
+    return path.match(/\d+/g).map(Number);
+  }),
+      _changePaths$map2 = _slicedToArray(_changePaths$map, 2),
+      initialPathIndeces = _changePaths$map2[0],
+      finalPathIndeces = _changePaths$map2[1];
+
+  var keysToAdd = {};
+  Object.entries(colorPathDict).forEach(function (_ref) {
+    var _ref2 = _slicedToArray(_ref, 2),
+        path = _ref2[0],
+        color = _ref2[1];
+
+    if (path.includes(changePaths[0])) {
+      var keyToAdd = "".concat(changePaths[1]).concat(path.split(changePaths[0])[1]);
+      keysToAdd[keyToAdd] = color;
+      return;
+    }
+
+    var pathIndeces = path.match(/\d+/g).map(Number);
+    var updatedIndeces = pathIndeces.slice(0, 1);
+
+    for (var i = 1; i < pathIndeces.length; i++) {
+      var currentIndex = pathIndeces[i];
+      var initialPathIndex = initialPathIndeces[i];
+      var finalPathIndex = finalPathIndeces[i];
+
+      if (currentIndex < initialPathIndex || currentIndex > finalPathIndex) {
+        break;
+      }
+
+      if (currentIndex > initialPathIndex) {
+        var _ret = function () {
+          updatedIndeces = [].concat(_toConsumableArray(updatedIndeces), [currentIndex - 1], _toConsumableArray(pathIndeces.slice(i + 1)));
+          delete colorPathDict[path];
+          var matchIndex = 0;
+          var updatedPath = path.replace(/\d+/g, function () {
+            return updatedIndeces[matchIndex++];
+          });
+          colorPathDict[updatedPath] = color;
+          return "break";
+        }();
+
+        if (_ret === "break") break;
+      }
+
+      updatedIndeces.push(currentIndex);
+    }
+  });
+  colorPathDict = _objectSpread(_objectSpread({}, colorPathDict), keysToAdd);
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Settings.setDocumentSettingForKey(document, 'color-path-dictionary', colorPathDict);
+}
+
+/***/ }),
+
+/***/ "./src/commands/onDocumentChanged/handleSharedStyleRename.js":
+/*!*******************************************************************!*\
+  !*** ./src/commands/onDocumentChanged/handleSharedStyleRename.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return handleSharedStyleRename; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _updatePaletteItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./updatePaletteItem */ "./src/commands/onDocumentChanged/updatePaletteItem.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+var Settings = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Settings;
+function handleSharedStyleRename(changePath, document) {
+  var _changePath$match = changePath.match(/\d+/g),
+      _changePath$match2 = _slicedToArray(_changePath$match, 1),
+      index = _changePath$match2[0];
+
+  var sharedLayerStyles = Array.from(document.sharedLayerStyles);
+  var sharedItem = sharedLayerStyles[index];
+  var fill = sharedItem.style.fills[0];
+  var border = sharedItem.style.borders[0];
+
+  if (fill) {
+    var sharedFillKeys = sharedLayerStyles.filter(function (shared) {
+      var _shared$style$fills$;
+
+      return ((_shared$style$fills$ = shared.style.fills[0]) === null || _shared$style$fills$ === void 0 ? void 0 : _shared$style$fills$.color) === fill.color;
+    }).map(function (shared) {
+      return shared.name;
+    });
+    var sharedFillColors = Settings.documentSettingForKey(document, 'shared-fills');
+    sharedFillColors[fill.color].sharedKeys = sharedFillKeys;
+    Settings.setDocumentSettingForKey(document, 'shared-fills', sharedFillColors);
+    Object(_updatePaletteItem__WEBPACK_IMPORTED_MODULE_1__["default"])(document, fill.color, fill.color, undefined, 'fill');
+  }
+
+  if (border) {
+    var sharedBorderKeys = sharedLayerStyles.filter(function (shared) {
+      var _shared$style$borders;
+
+      return ((_shared$style$borders = shared.style.borders[0]) === null || _shared$style$borders === void 0 ? void 0 : _shared$style$borders.color) === border.color;
+    }).map(function (shared) {
+      return shared.name;
+    });
+    var sharedBorderColors = Settings.documentSettingForKey(document, 'shared-borders');
+    sharedBorderColors[border.color].sharedKeys = sharedBorderKeys;
+    Settings.setDocumentSettingForKey(document, 'shared-borders', sharedBorderColors);
+    Object(_updatePaletteItem__WEBPACK_IMPORTED_MODULE_1__["default"])(document, border.color, border.color, border.thickness, 'border');
+  }
+}
+
+/***/ }),
+
+/***/ "./src/commands/onDocumentChanged/index.js":
+/*!*************************************************!*\
+  !*** ./src/commands/onDocumentChanged/index.js ***!
+  \*************************************************/
+/*! exports provided: onDocumentChanged, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onDocumentChanged", function() { return onDocumentChanged; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _handleLayerDeletion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./handleLayerDeletion */ "./src/commands/onDocumentChanged/handleLayerDeletion.js");
+/* harmony import */ var _handleLayerAssignment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./handleLayerAssignment */ "./src/commands/onDocumentChanged/handleLayerAssignment.js");
+/* harmony import */ var _handleChangedColor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./handleChangedColor */ "./src/commands/onDocumentChanged/handleChangedColor.js");
+/* harmony import */ var _handleLayerHierachyChange__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./handleLayerHierachyChange */ "./src/commands/onDocumentChanged/handleLayerHierachyChange.js");
+/* harmony import */ var _handleSharedStyleRename__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./handleSharedStyleRename */ "./src/commands/onDocumentChanged/handleSharedStyleRename.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+var Settings = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Settings,
+    Document = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Document;
+/* {
+    [color: string]: {
+        sharedKeys?: string[],
+        thicknesses?: number[]
+        usages: number
+    }
+} */
+
+function onDocumentChanged(context) {
+  var document = Document.getSelectedDocument();
+  var changePaths = Array.from(context.actionContext).map(function (actionContext) {
+    return actionContext.fullPath().toString().trim();
+  });
+  var changePath = changePaths[0];
+  var changePathSegments = changePath.match(/([a-z])\w+/g);
+  var isNewSharedStyle = changePath.includes('layerStyles') && changePathSegments.length === 1;
+  var isSharedStyleRename = changePath.includes('layerStyles') && changePathSegments.length === 2;
+
+  if (isNewSharedStyle) {
+    changePath = changePaths[1];
+    changePathSegments = changePath.match(/([a-z])\w+/g);
+  }
+
+  var finalSegment = changePathSegments[changePathSegments.length - 1];
+  var actionContext = context.actionContext[0];
+
+  var _changePath$match = changePath.match(/\d+/g),
+      _changePath$match2 = _slicedToArray(_changePath$match, 2),
+      abIndex = _changePath$match2[1];
+
+  var storedColorPathDict = Settings.documentSettingForKey(document, 'color-path-dictionary');
+  var hasPopulatedPalette = !!storedColorPathDict && Object.keys(storedColorPathDict).length > 0;
+  var isMove = actionContext.isMove && actionContext.isMove();
+  var actionType = actionContext.type();
+  var isDeletion = actionType === 2 && !isMove;
+  var layerDepthArr = changePathSegments.filter(function (segment) {
+    return segment === 'layers';
+  });
+
+  if (isSharedStyleRename) {
+    Object(_handleSharedStyleRename__WEBPACK_IMPORTED_MODULE_5__["default"])(changePath, document);
+    return;
+  }
+
+  if (!hasPopulatedPalette || layerDepthArr.length < 2 || abIndex === '0') return;
+
+  if (finalSegment === 'sharedStyleID' || finalSegment === 'layer') {
+    Object(_handleLayerAssignment__WEBPACK_IMPORTED_MODULE_2__["default"])(changePath, storedColorPathDict, document, isNewSharedStyle);
+    return;
+  }
+
+  if (finalSegment === 'color' || finalSegment === 'enabled') {
+    var modifiedCP = finalSegment === 'enabled' ? "".concat(changePath.split('enabled')[0], "color") : changePath;
+    Object(_handleChangedColor__WEBPACK_IMPORTED_MODULE_3__["default"])(modifiedCP, storedColorPathDict, document);
+    return;
+  }
+
+  if (isMove && changePaths.length > 1) {
+    Object(_handleLayerHierachyChange__WEBPACK_IMPORTED_MODULE_4__["default"])(changePaths, storedColorPathDict, document);
+    return;
+  }
+
+  if (isDeletion) {
+    Object(_handleLayerDeletion__WEBPACK_IMPORTED_MODULE_1__["default"])(changePath, storedColorPathDict, document);
+    return;
+  }
+}
+/* harmony default export */ __webpack_exports__["default"] = (onDocumentChanged);
+
+/***/ }),
+
+/***/ "./src/commands/onDocumentChanged/updatePaletteItem.js":
+/*!*************************************************************!*\
+  !*** ./src/commands/onDocumentChanged/updatePaletteItem.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return updatePaletteItem; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _sharedMethods_buildPaletteCell__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../sharedMethods/buildPaletteCell */ "./src/commands/sharedMethods/buildPaletteCell.js");
+/* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/constants */ "./src/utils/constants.js");
+/* harmony import */ var _utils_loc__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/loc */ "./src/utils/loc.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
+
+
+
+var find = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find,
+    Settings = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Settings,
+    message = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message;
+
+function setArtboardHeight(document) {
+  var sharedStyleRefLayer = find('[name="shared_layer_borders"]')[0] || find('[name="shared_layer_fills"]')[0];
+  var lowestSharedCell = sharedStyleRefLayer ? sharedStyleRefLayer.layers.map(function (layer) {
+    return layer.frame.y + layer.frame.height;
+  }).sort(function (a, b) {
+    return b - a;
+  })[0] + sharedStyleRefLayer.frame.y : 0;
+  var uniqueStyleRefLayer = find('[name="layer_borders"]')[0] || find('[name="layer_fills"]')[0];
+  var lowestUniqueCell = uniqueStyleRefLayer ? uniqueStyleRefLayer.layers.map(function (layer) {
+    return layer.frame.y + layer.frame.height;
+  }).sort(function (a, b) {
+    return b - a;
+  })[0] + uniqueStyleRefLayer.frame.y : 0;
+  var bottom = Math.max(lowestSharedCell, lowestUniqueCell) + 200;
+  var paletteBoardId = Settings.documentSettingForKey(document, 'palette-board-id');
+  find("[id=\"".concat(paletteBoardId, "\"]"))[0].frame.height = bottom;
+}
+
+function updatePaletteCell(type, color, _ref) {
+  var _parentLayer$layers;
+
+  var usages = _ref.usages,
+      thicknesses = _ref.thicknesses,
+      sharedKeys = _ref.sharedKeys;
+  var parentLayerName = "".concat(type, ": ").concat(color);
+  var parentLayer = find("[name=\"".concat(parentLayerName, "\"]"))[0];
+  Array.from(parentLayer.layers).forEach(function (layer, index) {
+    index > 0 && layer.remove();
+  });
+  var localCoordinates = {
+    x: 10,
+    y: 10
+  };
+  var sharedKeyLayers = Object(_sharedMethods_buildPaletteCell__WEBPACK_IMPORTED_MODULE_1__["buildCellSharedKeyText"])(sharedKeys, localCoordinates, parentLayer.frame.height);
+  var textLayers = Object(_sharedMethods_buildPaletteCell__WEBPACK_IMPORTED_MODULE_1__["buildCellText"])(color, usages, thicknesses, localCoordinates);
+
+  (_parentLayer$layers = parentLayer.layers).push.apply(_parentLayer$layers, _toConsumableArray(sharedKeyLayers).concat(_toConsumableArray(textLayers)));
+}
+
+function addNewCell(color, type, cellToRemove, document, isNewSharedStyle) {
+  var hasCellToRemove = !!cellToRemove;
+  var layerStylePrefix = isNewSharedStyle ? 'shared_layer' : 'layer';
+  var parentLayer = find("[name=\"".concat(layerStylePrefix, "_").concat(type, "s\"]"))[0];
+  var lowestLayerY = parentLayer.layers.map(function (layer) {
+    return layer.frame.y;
+  }).sort(function (a, b) {
+    return b - a;
+  })[0];
+  var y = lowestLayerY + _utils_constants__WEBPACK_IMPORTED_MODULE_2__["BASE_CELL_HEIGHT"];
+
+  if (hasCellToRemove) {
+    y = isNewSharedStyle ? y : cellToRemove.frame.y;
+    cleanlyRemoveCell(cellToRemove, type, isNewSharedStyle, document);
+  }
+
+  if (!hasCellToRemove || isNewSharedStyle) {
+    if (type === 'fill') {
+      var layerBorders = find("[name=\"".concat(layerStylePrefix, "_borders\"]"))[0];
+      layerBorders.frame.y += _utils_constants__WEBPACK_IMPORTED_MODULE_2__["BASE_CELL_HEIGHT"];
+    }
+
+    setArtboardHeight(document);
+  }
+
+  parentLayer.layers.push(Object(_sharedMethods_buildPaletteCell__WEBPACK_IMPORTED_MODULE_1__["default"])(color, type, {
+    y: y
+  }));
+}
+
+function cleanlyRemoveCell(cellToRemove, type, shiftLayers, document) {
+  if (!cellToRemove) {
+    return;
+  }
+
+  if (shiftLayers) {
+    var parentLayer = find("[name=\"layer_".concat(type, "s\"]"))[0];
+    var lowestLayer = Array.from(parentLayer.layers).sort(function (a, b) {
+      return b.frame.y - a.frame.y;
+    });
+    var isLowesttLayer = cellToRemove === lowestLayer;
+
+    if (!isLowesttLayer) {
+      lowestLayer[0].frame.y = cellToRemove.frame.y;
+    }
+
+    if (type === 'fill') {
+      var layerBorders = find('[name="layer_borders"]')[0];
+      layerBorders.frame.y -= cellToRemove.frame.height;
+    }
+  }
+
+  cellToRemove.remove();
+  setArtboardHeight(document);
+}
+
+function updatePaletteItem(document, previousColor, updatedColor, updatedThickness, type) {
+  var isNewSharedStyle = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : false;
+  var sharedColors = Settings.documentSettingForKey(document, "shared-".concat(type, "s"));
+  var layerColors = Settings.documentSettingForKey(document, "layer-".concat(type, "s"));
+  var cellToRemove;
+
+  if (sharedColors[previousColor] && !isNewSharedStyle) {
+    sharedColors[previousColor].usages > 0 && sharedColors[previousColor].usages--;
+    updatePaletteCell(type, previousColor, sharedColors[previousColor]);
+  } else if (layerColors[previousColor]) {
+    if (layerColors[previousColor].usages > 1) {
+      layerColors[previousColor].usages--;
+      updatePaletteCell(type, previousColor, layerColors[previousColor]);
+    } else {
+      delete layerColors[previousColor];
+      cellToRemove = find("[name=\"".concat(type, ": ").concat(previousColor, "\"]"))[0];
+    }
+  }
+
+  var sharedCellExists = !!find("[name=\"".concat(type, ": ").concat(updatedColor, "\"]"), find("[name=\"shared_layer_".concat(type, "s\"]"))[0])[0];
+
+  if (sharedColors[updatedColor] && sharedCellExists) {
+    sharedColors[updatedColor].usages++;
+    updatePaletteCell(type, updatedColor, sharedColors[updatedColor]);
+  } else if (layerColors[updatedColor]) {
+    layerColors[updatedColor].usages++;
+    updatePaletteCell(type, updatedColor, layerColors[updatedColor]);
+  } else if (updatedColor) {
+    var colorData;
+
+    if (isNewSharedStyle) {
+      colorData = sharedColors[updatedColor];
+    } else {
+      colorData = {
+        usages: 1,
+        thicknesses: type === 'border' ? [updatedThickness] : undefined
+      };
+      layerColors[updatedColor] = colorData;
+    }
+
+    addNewCell([updatedColor, colorData], type, cellToRemove, document, isNewSharedStyle);
+    cellToRemove = undefined;
+  }
+
+  cleanlyRemoveCell(cellToRemove, type, true, document);
+  Settings.setDocumentSettingForKey(document, "shared-".concat(type, "s"), sharedColors);
+  Settings.setDocumentSettingForKey(document, "layer-".concat(type, "s"), layerColors);
+  message(Object(_utils_loc__WEBPACK_IMPORTED_MODULE_3__["default"])('messages.paletteUpdated'));
+}
+
+/***/ }),
+
+/***/ "./src/commands/sharedMethods/buildPaletteCell.js":
+/*!********************************************************!*\
+  !*** ./src/commands/sharedMethods/buildPaletteCell.js ***!
+  \********************************************************/
+/*! exports provided: buildCellSharedKeyText, buildCellText, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildCellSharedKeyText", function() { return buildCellSharedKeyText; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildCellText", function() { return buildCellText; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return buildPaletteCell; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/constants */ "./src/utils/constants.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+function buildCellSharedKeyText(sharedKeys, localCoordinates, cellHeight) {
+  var colorLayers = [];
+
+  if (Array.isArray(sharedKeys)) {
+    sharedKeys.forEach(function (key) {
+      colorLayers.push({
+        type: sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Types.Text,
+        text: key,
+        style: {
+          fontSize: 17,
+          fontWeight: 12,
+          fontFamily: 'PT Sans',
+          kerning: null,
+          paragraphSpacing: 0,
+          textColor: '#000000ff',
+          borders: []
+        },
+        frame: new sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle(90, localCoordinates.y, 270, 20),
+        fixedWidth: true
+      });
+      var charLimit = 33; // May need adjustments
+
+      var yAdjustment = Math.ceil(key.length / charLimit) * 20;
+      localCoordinates.y += yAdjustment;
+      cellHeight += yAdjustment;
+    });
+  }
+
+  localCoordinates.y += 7;
+  return colorLayers;
+}
+function buildCellText(color, usages, thicknesses, localCoordinates) {
+  var thicknessPrefix = thicknesses ? "".concat(thicknesses.join('px, '), "px ") : '';
+  var opacity = parseInt(color.substring(7, 9), 16) / 255;
+  var opacitySuffix = opacity < 1 ? " (".concat(opacity.toFixed(2).substring(1), " opacity)") : '';
+  var usagesString = "".concat(usages, " use").concat(usages !== 1 ? 's' : '');
+  return [{
+    type: sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Types.Text,
+    text: "".concat(thicknessPrefix).concat(color.substring(0, 7)).concat(opacitySuffix),
+    frame: new sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle(90, localCoordinates.y, 300, 20),
+    style: {
+      fontSize: 17,
+      fontFamily: 'PT Sans',
+      kerning: null,
+      paragraphSpacing: 0,
+      textColor: '#000000ff',
+      borders: []
+    }
+  }, {
+    type: sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Types.Text,
+    text: usagesString,
+    frame: new sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle(90, localCoordinates.y + 20, 300, 20),
+    style: {
+      fontSize: 17,
+      fontFamily: 'PT Sans',
+      kerning: null,
+      paragraphSpacing: 0,
+      textColor: '#000000ff',
+      borders: []
+    }
+  }]; // currently need to be last layers in group
+}
+function buildPaletteCell(_ref, type, coordinates) {
+  var _ref2 = _slicedToArray(_ref, 2),
+      color = _ref2[0],
+      _ref2$ = _ref2[1],
+      sharedKeys = _ref2$.sharedKeys,
+      usages = _ref2$.usages,
+      thicknesses = _ref2$.thicknesses;
+
+  var colorLayers = [];
+  var colorArr = [{
+    color: color
+  }];
+  var colorFills = [];
+  var colorBorders = [];
+
+  if (type === 'border') {
+    colorBorders = colorArr;
+  } else {
+    colorFills = colorArr;
+  }
+
+  if (color.includes('#ffffff')) {
+    var whiteBg = {
+      type: sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Types.ShapePath,
+      shapeType: sketch__WEBPACK_IMPORTED_MODULE_0___default.a.ShapePath.ShapeType.Rectangle,
+      style: {
+        fills: [{
+          color: '#000000'
+        }],
+        borders: []
+      },
+      frame: new sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle(0, 0, 80, 80)
+    };
+    colorLayers.push(whiteBg);
+  }
+
+  var localCoordinates = {
+    x: 10,
+    y: 10
+  };
+  var colorShape = {
+    type: sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Types.ShapePath,
+    shapeType: sketch__WEBPACK_IMPORTED_MODULE_0___default.a.ShapePath.ShapeType.Oval,
+    style: {
+      fills: colorFills,
+      borders: colorBorders,
+      borderOptions: {
+        startArrowHead: 'FilledCircle',
+        endArrowHead: 'FilledCircle'
+      }
+    },
+    frame: new sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle(localCoordinates.x, localCoordinates.y, 60, 60)
+  };
+  colorLayers.push(colorShape);
+  var cellHeight = _utils_constants__WEBPACK_IMPORTED_MODULE_1__["BASE_CELL_HEIGHT"];
+  var sharedKeyLayers = buildCellSharedKeyText(sharedKeys, localCoordinates, cellHeight);
+  var textLayers = buildCellText(color, usages, thicknesses, localCoordinates, sharedKeys);
+  colorLayers.push.apply(colorLayers, _toConsumableArray(sharedKeyLayers).concat(_toConsumableArray(textLayers)));
+  var colorGroup = new sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Group({
+    name: "".concat(type, ": ").concat(color),
+    layers: colorLayers
+  });
+  colorGroup.frame.y = coordinates.y;
+  coordinates.y += cellHeight;
+  return colorGroup;
+}
+
+/***/ }),
+
+/***/ "./src/utils/arrayMatches.js":
+/*!***********************************!*\
+  !*** ./src/utils/arrayMatches.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return arrayMatches; });
+function arrayMatches() {
+  var arr1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var arr2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+  var strict = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  var newItems = arr2.filter(function (item) {
+    return !arr1.includes(item);
+  });
+
+  if (arr1.length !== arr2.length || newItems.length) {
+    return {
+      matches: false,
+      newItems: newItems
+    };
+  }
+
+  var matches = true;
+  arr1.forEach(function (item, index) {
+    if (strict && item !== arr2[index] || !arr2.includes(item)) {
+      matches = false;
+    }
+  });
+  return {
+    matches: matches,
+    newItems: newItems
+  };
+}
+
+/***/ }),
+
+/***/ "./src/utils/constants.js":
+/*!********************************!*\
+  !*** ./src/utils/constants.js ***!
+  \********************************/
+/*! exports provided: BASE_CELL_HEIGHT */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE_CELL_HEIGHT", function() { return BASE_CELL_HEIGHT; });
+var BASE_CELL_HEIGHT = 95;
+
+/***/ }),
+
+/***/ "./src/utils/loc.js":
+/*!**************************!*\
+  !*** ./src/utils/loc.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return loc; });
+/* harmony import */ var _strings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./strings */ "./src/utils/strings.js");
+
+function loc(key) {
+  return key.split('.').reduce(function (acc, item) {
+    return acc[item] || '';
+  }, _strings__WEBPACK_IMPORTED_MODULE_0__["default"]);
+}
+
+/***/ }),
+
+/***/ "./src/utils/strings.js":
+/*!******************************!*\
+  !*** ./src/utils/strings.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  paletteName: '🎨 Palette Cleanser',
+  shared: {
+    title: 'Layer Style Colors',
+    subtitle: 'These colors are from fills and borders in your Layer Styles. They can be easily reused and updated throughout your designs.'
+  },
+  unique: {
+    title: 'Unique Colors',
+    subtitle: "These colors are from fills and borders in your document that aren't part of a Layer Style. Unique styles can work for simple designs, but it's hard to maintain a consistent palette as your design grows."
+  },
+  fillsHeader: 'Fills',
+  bordersHeader: 'Borders',
+  messages: {
+    paletteBuilt: '🎉 Your palette is ready 🎉',
+    paletteUpdated: '✅ Palette updated ✅'
+  }
+});
+
+/***/ }),
+
+/***/ "sketch":
+/*!*************************!*\
+  !*** external "sketch" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch");
+
+/***/ })
+
+/******/ });
+    if (key === 'default' && typeof exports === 'function') {
+      exports(context);
+    } else if (typeof exports[key] !== 'function') {
+      throw new Error('Missing export named "' + key + '". Your command should contain something like `export function " + key +"() {}`.');
+    } else {
+      exports[key](context);
+    }
+  } catch (err) {
+    if (typeof process !== 'undefined' && process.listenerCount && process.listenerCount('uncaughtException')) {
+      process.emit("uncaughtException", err, "uncaughtException");
+    } else {
+      throw err
+    }
+  }
+}
+globalThis['onDocumentChanged'] = __skpm_run.bind(this, 'onDocumentChanged');
+globalThis['onRun'] = __skpm_run.bind(this, 'default')
