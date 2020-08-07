@@ -1,4 +1,4 @@
-import arrayMatches from '../utils/arrayMatches';
+import arrayMatches from '../../utils/arrayMatches';
 
 export default function processLayerColors(sharedColors, layerColors) {
     Object.entries(layerColors).forEach(([color, { usages, thicknesses }]) => {

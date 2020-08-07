@@ -1,8 +1,8 @@
 import sketch from 'sketch';
 import buildSectionGroup from './buildSectionGroup';
-import addLayerIfPresent from './addLayerIfPresent';
+import addLayerIfPresent from '../sharedMethods/addLayerIfPresent';
 import buildColumnGroup from './buildColumnGroup';
-import loc from '../utils/loc';
+import loc from '../../utils/loc';
 
 const { Settings, Rectangle, Artboard } = sketch;
 

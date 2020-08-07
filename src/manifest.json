@@ -4,30 +4,30 @@
     "description": "Get a full rundown of the colors you're using in your Sketch document.",
     "author": "Protean Studio",
     "homepage": "https://github.com/proteanstudio/palette-cleanser",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "identifier": "com.example.sketch.plugin.palette-cleanser",
     "appcast": "",
     "compatibleVersion": "67.2",
     "icon": "icon.png",
     "commands": [
         {
-            "script": "./onColorChange.js",
-            "name": "onColorChange",
+            "script": "./commands/onDocumentChanged/",
+            "name": "onDocumentChanged",
             "handlers": {
                 "actions": {
-                    "onDocumentChanged": "onColorChange"
+                    "onDocumentChanged": "onDocumentChanged"
                 }
             },
-            "identifier": "palette-cleanser.onColorChange-identifier"
+            "identifier": "palette-cleanser.onDocumentChanged-identifier"
         },
         {
-            "script": "./setupPalette.js",
+            "script": "./commands/setupPalette/",
             "name": "Build Palette",
             "shortcut": "cmd shift p",
             "identifier": "palette-cleanser.setupPalette-identifier"
         },
         {
-            "script": "./removePalette.js",
+            "script": "./commands/removePalette/",
             "name": "Remove Palette",
             "shortcut": "cmd alt p",
             "identifier": "palette-cleanser.removePalette-identifier"
