@@ -4,9 +4,9 @@
     "description": "Get a full rundown of the colors you're using in your Sketch document.",
     "author": "Protean Studio",
     "homepage": "https://github.com/proteanstudio/palette-cleanser",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "identifier": "com.example.sketch.plugin.palette-cleanser",
-    "appcast": "",
+    "appcast": "https://raw.githubusercontent.com/proteanstudio/sketch-palette-cleanser/master/.appcast.xml",
     "compatibleVersion": "67.2",
     "icon": "icon.png",
     "commands": [
