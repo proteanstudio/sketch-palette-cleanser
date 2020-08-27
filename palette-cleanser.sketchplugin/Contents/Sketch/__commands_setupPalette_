@@ -193,7 +193,18 @@ function buildPaletteBoard(document, sharedFills, layerFills, sharedBorders, lay
   })[0];
 
   if (!paletteBoard) {
-    var boardFrame = new Rectangle(-4000, 0, 1000, 2000);
+    var firstPage = document.pages[0];
+    var lowestY = firstPage.layers.map(function (layer) {
+      return layer.frame.y;
+    }).sort(function (a, b) {
+      return a - b;
+    })[0];
+    var lowestX = firstPage.layers.map(function (layer) {
+      return layer.frame.x;
+    }).sort(function (a, b) {
+      return a - b;
+    })[0];
+    var boardFrame = new Rectangle(lowestX - 2000, lowestY, 1000, 2000);
     paletteBoard = new Artboard({
       name: Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('paletteName'),
       flowStartPoint: true,
