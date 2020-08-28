@@ -306,6 +306,8 @@ function buildSectionGroup(coordinates, name, label, colorDict) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return getSharedBorderStyles; });
+/* harmony import */ var _sharedMethods_roundThickness__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sharedMethods/roundThickness */ "./src/commands/sharedMethods/roundThickness.js");
+
 function getSharedBorderStyles(document) {
   return document.sharedLayerStyles.reduce(function (acc, _ref) {
     var name = _ref.name,
@@ -318,7 +320,7 @@ function getSharedBorderStyles(document) {
         acc[color].sharedKeys.push(name);
 
         if (!acc[color].thicknesses.includes(thickness)) {
-          acc[color].thicknesses.push(thickness);
+          acc[color].thicknesses.push(Object(_sharedMethods_roundThickness__WEBPACK_IMPORTED_MODULE_0__["default"])(thickness));
         }
 
         return;
@@ -326,7 +328,7 @@ function getSharedBorderStyles(document) {
 
       acc[color] = {
         sharedKeys: [name],
-        thicknesses: [thickness],
+        thicknesses: [Object(_sharedMethods_roundThickness__WEBPACK_IMPORTED_MODULE_0__["default"])(thickness)],
         usages: 0
       };
     });
@@ -432,6 +434,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return parseLayers; });
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _sharedMethods_roundThickness__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../sharedMethods/roundThickness */ "./src/commands/sharedMethods/roundThickness.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -443,6 +446,7 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.it
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 
 function parseLayers(document) {
@@ -495,7 +499,7 @@ function parseLayers(document) {
 
             if (layerBorders[color]) {
               if (!layerBorders[color].thicknesses.includes(thickness)) {
-                layerBorders[color].thicknesses.push(thickness);
+                layerBorders[color].thicknesses.push(Object(_sharedMethods_roundThickness__WEBPACK_IMPORTED_MODULE_1__["default"])(thickness));
               }
 
               layerBorders[color].usages++;
@@ -504,7 +508,7 @@ function parseLayers(document) {
 
             layerBorders[color] = {
               usages: 1,
-              thicknesses: [thickness]
+              thicknesses: [Object(_sharedMethods_roundThickness__WEBPACK_IMPORTED_MODULE_1__["default"])(thickness)]
             };
           }
         });
@@ -762,6 +766,23 @@ function buildPaletteCell(_ref, type, coordinates) {
   colorGroup.frame.y = coordinates.y;
   coordinates.y += cellHeight;
   return colorGroup;
+}
+
+/***/ }),
+
+/***/ "./src/commands/sharedMethods/roundThickness.js":
+/*!******************************************************!*\
+  !*** ./src/commands/sharedMethods/roundThickness.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return roundThickness; });
+function roundThickness(thickness) {
+  if (Number.isInteger(thickness)) return thickness;
+  return Number(thickness.toFixed(2));
 }
 
 /***/ }),
