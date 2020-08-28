@@ -1,4 +1,5 @@
 import sketch from 'sketch';
+import roundThickness from '../sharedMethods/roundThickness';
 
 export default function parseLayers(document) {
     let layerFills = {};
@@ -50,14 +51,14 @@ export default function parseLayers(document) {
 
                             if (layerBorders[color]) {
                                 if (!layerBorders[color].thicknesses.includes(thickness)) {
-                                    layerBorders[color].thicknesses.push(thickness);
+                                    layerBorders[color].thicknesses.push(roundThickness(thickness));
                                 }
                                 layerBorders[color].usages++;
                                 return;
                             }
                             layerBorders[color] = {
                                 usages: 1,
-                                thicknesses: [thickness],
+                                thicknesses: [roundThickness(thickness)],
                             };
                         }
                     });

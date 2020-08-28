@@ -654,6 +654,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sharedMethods_buildPaletteCell__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../sharedMethods/buildPaletteCell */ "./src/commands/sharedMethods/buildPaletteCell.js");
 /* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/constants */ "./src/utils/constants.js");
 /* harmony import */ var _utils_loc__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/loc */ "./src/utils/loc.js");
+/* harmony import */ var _sharedMethods_roundThickness__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../sharedMethods/roundThickness */ "./src/commands/sharedMethods/roundThickness.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -665,6 +666,7 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.it
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 
 
@@ -804,7 +806,7 @@ function updatePaletteItem(document, previousColor, updatedColor, updatedThickne
     } else {
       colorData = {
         usages: 1,
-        thicknesses: type === 'border' ? [updatedThickness] : undefined
+        thicknesses: type === 'border' ? [Object(_sharedMethods_roundThickness__WEBPACK_IMPORTED_MODULE_4__["default"])(updatedThickness)] : undefined
       };
       layerColors[updatedColor] = colorData;
     }
@@ -985,6 +987,23 @@ function buildPaletteCell(_ref, type, coordinates) {
   colorGroup.frame.y = coordinates.y;
   coordinates.y += cellHeight;
   return colorGroup;
+}
+
+/***/ }),
+
+/***/ "./src/commands/sharedMethods/roundThickness.js":
+/*!******************************************************!*\
+  !*** ./src/commands/sharedMethods/roundThickness.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return roundThickness; });
+function roundThickness(thickness) {
+  if (Number.isInteger(thickness)) return thickness;
+  return Number(thickness.toFixed(2));
 }
 
 /***/ }),

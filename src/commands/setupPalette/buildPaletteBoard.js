@@ -13,7 +13,10 @@ export default function buildPaletteBoard(document, sharedFills, layerFills, sha
     let paletteBoard = artboards.filter((ab) => ab.id === paletteBoardId)[0];
 
     if (!paletteBoard) {
-        const boardFrame = new Rectangle(-4000, 0, 1000, 2000);
+        const firstPage = document.pages[0];
+        const lowestY = firstPage.layers.map((layer) => layer.frame.y).sort((a, b) => a - b)[0];
+        const lowestX = firstPage.layers.map((layer) => layer.frame.x).sort((a, b) => a - b)[0];
+        const boardFrame = new Rectangle(lowestX - 2000, lowestY, 1000, 2000);
         paletteBoard = new Artboard({
             name: loc('paletteName'),
             flowStartPoint: true,
