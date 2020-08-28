@@ -2,6 +2,7 @@ import sketch from 'sketch';
 import buildPaletteCell, { buildCellText, buildCellSharedKeyText } from '../sharedMethods/buildPaletteCell';
 import { BASE_CELL_HEIGHT } from '../../utils/constants';
 import loc from '../../utils/loc';
+import roundThickness from '../sharedMethods/roundThickness';
 
 const {
     find,
@@ -136,7 +137,7 @@ export default function updatePaletteItem(
         } else {
             colorData = {
                 usages: 1,
-                thicknesses: type === 'border' ? [updatedThickness] : undefined,
+                thicknesses: type === 'border' ? [roundThickness(updatedThickness)] : undefined,
             };
             layerColors[updatedColor] = colorData;
         }
