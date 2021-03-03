@@ -1,7 +1,7 @@
 import sketch from 'sketch';
 import { BASE_CELL_HEIGHT } from '../../utils/constants';
 
-export function buildCellSharedKeyText(sharedKeys, localCoordinates, cellHeight) {
+export function buildCellSharedKeyText(sharedKeys, localCoordinates, cell) {
     let colorLayers = [];
     if (Array.isArray(sharedKeys)) {
         sharedKeys.forEach((key) => {
@@ -24,7 +24,7 @@ export function buildCellSharedKeyText(sharedKeys, localCoordinates, cellHeight)
             const charLimit = 33; // May need adjustments
             const yAdjustment = Math.ceil(key.length / charLimit) * 20;
             localCoordinates.y += yAdjustment;
-            cellHeight += yAdjustment;
+            cell.height += yAdjustment;
         });
     }
 
@@ -115,9 +115,11 @@ export default function buildPaletteCell([color, { sharedKeys, usages, thickness
     };
     colorLayers.push(colorShape);
 
-    let cellHeight = BASE_CELL_HEIGHT;
+    let cell = {
+        height: BASE_CELL_HEIGHT,
+    };
 
-    const sharedKeyLayers = buildCellSharedKeyText(sharedKeys, localCoordinates, cellHeight);
+    const sharedKeyLayers = buildCellSharedKeyText(sharedKeys, localCoordinates, cell);
 
     const textLayers = buildCellText(color, usages, thicknesses, localCoordinates, sharedKeys);
     colorLayers.push(...sharedKeyLayers, ...textLayers);
@@ -128,6 +130,6 @@ export default function buildPaletteCell([color, { sharedKeys, usages, thickness
     });
     colorGroup.frame.y = coordinates.y;
 
-    coordinates.y += cellHeight;
+    coordinates.y += cell.height;
     return colorGroup;
 }

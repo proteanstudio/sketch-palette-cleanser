@@ -1,9 +1,13 @@
 export default {
     paletteName: '🎨 Palette Cleanser',
+    colors: {
+        title: 'Color Variables',
+        subtitle: 'The defined color variables in your document. They can easily be reused as both fills and borders.',
+    },
     shared: {
         title: 'Layer Style Colors',
         subtitle:
-            'These colors are from fills and borders in your Layer Styles. They can be easily reused and updated throughout your designs.',
+            'These colors are from fills and borders in your Layer Styles. They can be easily reused and updated throughout your designs. Layer colors that match color variables are excluded.',
     },
     unique: {
         title: 'Unique Colors',

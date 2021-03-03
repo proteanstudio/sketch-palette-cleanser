@@ -7,7 +7,7 @@
   "version": "1.0.3",
   "identifier": "com.example.sketch.plugin.palette-cleanser",
   "appcast": "https://raw.githubusercontent.com/proteanstudio/sketch-palette-cleanser/master/.appcast.xml",
-  "compatibleVersion": "67.2",
+  "compatibleVersion": "70.6",
   "icon": "icon.png",
   "commands": [
     {
