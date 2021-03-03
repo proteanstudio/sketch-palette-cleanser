@@ -1,5 +1,8 @@
 import sketch from 'sketch';
-import buildPaletteCell, { buildCellText, buildCellSharedKeyText } from '../sharedMethods/buildPaletteCell';
+import buildPaletteCell, {
+    buildCellText,
+    buildCellSharedKeyText,
+} from '../sharedMethods/buildPaletteCell';
 import { BASE_CELL_HEIGHT } from '../../utils/constants';
 import loc from '../../utils/loc';
 import roundThickness from '../sharedMethods/roundThickness';
@@ -11,17 +14,21 @@ const {
 } = sketch;
 
 function setArtboardHeight(document) {
-    const sharedStyleRefLayer = find('[name="shared-layer-borders"]')[0] || find('[name="shared-layer-fills"]')[0];
+    const sharedStyleRefLayer =
+        find('[name="shared-layer-borders"]')[0] || find('[name="shared-layer-fills"]')[0];
 
     const lowestSharedCell = sharedStyleRefLayer
-        ? sharedStyleRefLayer.layers.map((layer) => layer.frame.y + layer.frame.height).sort((a, b) => b - a)[0] +
-          sharedStyleRefLayer.frame.y
+        ? sharedStyleRefLayer.layers
+              .map((layer) => layer.frame.y + layer.frame.height)
+              .sort((a, b) => b - a)[0] + sharedStyleRefLayer.frame.y
         : 0;
 
-    const uniqueStyleRefLayer = find('[name="layer-borders"]')[0] || find('[name="layer-fills"]')[0];
+    const uniqueStyleRefLayer =
+        find('[name="layer-borders"]')[0] || find('[name="layer-fills"]')[0];
     const lowestUniqueCell = uniqueStyleRefLayer
-        ? uniqueStyleRefLayer.layers.map((layer) => layer.frame.y + layer.frame.height).sort((a, b) => b - a)[0] +
-          uniqueStyleRefLayer.frame.y
+        ? uniqueStyleRefLayer.layers
+              .map((layer) => layer.frame.y + layer.frame.height)
+              .sort((a, b) => b - a)[0] + uniqueStyleRefLayer.frame.y
         : 0;
 
     const bottom = Math.max(lowestSharedCell, lowestUniqueCell) + 200;
@@ -39,7 +46,9 @@ function updatePaletteCell(type, color, { usages, thicknesses, sharedKeys }) {
     });
 
     const localCoordinates = { x: 10, y: 10 };
-    const sharedKeyLayers = buildCellSharedKeyText(sharedKeys, localCoordinates, { height: parentLayer.frame.height });
+    const sharedKeyLayers = buildCellSharedKeyText(sharedKeys, localCoordinates, {
+        height: parentLayer.frame.height,
+    });
 
     const textLayers = buildCellText(color, usages, thicknesses, localCoordinates);
 
@@ -136,9 +145,18 @@ export default function updatePaletteItem(
         }
     }
 
-    const varCellExists = !!find(`[name="variable: ${updatedColor}"]`, find('[name="color-var-colors"]')[0])[0];
-    const sharedCellExists = !!find(`[name="${type}: ${updatedColor}"]`, find(`[name="shared-layer-${type}s"]`)[0])[0];
-    const layerCellExists = !!find(`[name="${type}: ${updatedColor}"]`, find(`[name="layer-${type}s"]`)[0])[0];
+    const varCellExists = !!find(
+        `[name="variable: ${updatedColor}"]`,
+        find('[name="color-var-colors"]')[0]
+    )[0];
+    const sharedCellExists = !!find(
+        `[name="${type}: ${updatedColor}"]`,
+        find(`[name="shared-layer-${type}s"]`)[0]
+    )[0];
+    const layerCellExists = !!find(
+        `[name="${type}: ${updatedColor}"]`,
+        find(`[name="layer-${type}s"]`)[0]
+    )[0];
 
     if (colorVars[updatedColor] && varCellExists) {
         colorVars[updatedColor].usages++;
@@ -165,7 +183,14 @@ export default function updatePaletteItem(
             layerColors[updatedColor] = colorData;
         }
 
-        addNewCell([updatedColor, colorData], type, cellToRemove, document, isNewSharedStyle, isNewColorVar);
+        addNewCell(
+            [updatedColor, colorData],
+            type,
+            cellToRemove,
+            document,
+            isNewSharedStyle,
+            isNewColorVar
+        );
         cellToRemove = undefined;
     }
 

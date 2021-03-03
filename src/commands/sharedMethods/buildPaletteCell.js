@@ -68,7 +68,11 @@ export function buildCellText(color, usages, thicknesses, localCoordinates) {
     ]; // currently need to be last layers in group
 }
 
-export default function buildPaletteCell([color, { sharedKeys, usages, thicknesses }], type, coordinates) {
+export default function buildPaletteCell(
+    [color, { sharedKeys, usages, thicknesses }],
+    type,
+    coordinates
+) {
     let colorLayers = [];
     const colorArr = [{ color }];
     let colorFills = [];

@@ -4,17 +4,27 @@ import updatePaletteItem from './updatePaletteItem';
 
 const { Settings } = sketch;
 
-export default function handleColorVarChange(changePath, document, colorVarChangePath, colorPathDict) {
+export default function handleColorVarChange(
+    changePath,
+    document,
+    colorVarChangePath,
+    colorPathDict
+) {
     const [index] = colorVarChangePath.match(/\d+/g);
     const newColor = Array.from(document.swatches)[index].color;
     const oldColor = colorPathDict[changePath];
 
-    let { [oldColor]: value, ...colorVars } = Settings.documentSettingForKey(document, 'color-variables');
+    let { [oldColor]: value, ...colorVars } = Settings.documentSettingForKey(
+        document,
+        'color-variables'
+    );
     let layerFills = Settings.documentSettingForKey(document, 'layer-fills');
     let layerBorders = Settings.documentSettingForKey(document, 'layer-borders');
     const type = changePath.includes('border') ? 'border' : 'fill';
 
-    const matchingPaths = Object.entries(colorPathDict).filter(([path, color]) => color === oldColor);
+    const matchingPaths = Object.entries(colorPathDict).filter(
+        ([path, color]) => color === oldColor
+    );
 
     const detachedMatchingPaths = {
         fills: {
@@ -70,6 +80,14 @@ export default function handleColorVarChange(changePath, document, colorVarChang
     if (detachedMatchingPaths.borders.usages > 0) {
         layerBorders[oldColor] = detachedMatchingPaths.borders;
         Settings.setDocumentSettingForKey(document, 'layer-borders', layerBorders);
-        updatePaletteItem(document, '', oldColor, detachedMatchingPaths.borders.thicknesses[0], 'border', false, false);
+        updatePaletteItem(
+            document,
+            '',
+            oldColor,
+            detachedMatchingPaths.borders.thicknesses[0],
+            'border',
+            false,
+            false
+        );
     }
 }

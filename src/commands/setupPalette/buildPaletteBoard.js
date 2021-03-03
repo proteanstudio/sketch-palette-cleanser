@@ -6,7 +6,14 @@ import loc from '../../utils/loc';
 
 const { Settings, Rectangle, Artboard } = sketch;
 
-export default function buildPaletteBoard(document, colorVars, sharedFills, layerFills, sharedBorders, layerBorders) {
+export default function buildPaletteBoard(
+    document,
+    colorVars,
+    sharedFills,
+    layerFills,
+    sharedBorders,
+    layerBorders
+) {
     const artboards = document.pages.map((page) => page.layers).flat();
 
     const paletteBoardId = Settings.documentSettingForKey(document, 'palette-board-id');
@@ -52,7 +59,12 @@ export default function buildPaletteBoard(document, colorVars, sharedFills, laye
     const colorVarsY = coordinates.y;
     coordinates.y = 150;
 
-    const sLFCGroup = buildSectionGroup(coordinates, 'shared-layer-fills', loc('fillsHeader'), sharedFills);
+    const sLFCGroup = buildSectionGroup(
+        coordinates,
+        'shared-layer-fills',
+        loc('fillsHeader'),
+        sharedFills
+    );
 
     const sLBCGroup = buildSectionGroup(
         coordinates,
@@ -85,7 +97,13 @@ export default function buildPaletteBoard(document, colorVars, sharedFills, laye
 
     const lFGroup = buildSectionGroup(coordinates, 'layer-fills', loc('fillsHeader'), layerFills);
 
-    const lBGroup = buildSectionGroup(coordinates, 'layer-borders', loc('bordersHeader'), layerBorders, 'border');
+    const lBGroup = buildSectionGroup(
+        coordinates,
+        'layer-borders',
+        loc('bordersHeader'),
+        layerBorders,
+        'border'
+    );
 
     addLayerIfPresent(lFGroup, uniqueStylesGroup);
     addLayerIfPresent(lBGroup, uniqueStylesGroup);

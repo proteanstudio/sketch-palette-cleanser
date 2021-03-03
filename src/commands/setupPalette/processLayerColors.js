@@ -9,7 +9,10 @@ export default function processLayerColors(colorVars, sharedColors, layerColors)
         }
 
         if (sharedColors[color]) {
-            const { matches: thicknessMatches, newItems } = arrayMatches(sharedColors[color].thicknesses, thicknesses);
+            const { matches: thicknessMatches, newItems } = arrayMatches(
+                sharedColors[color].thicknesses,
+                thicknesses
+            );
 
             if (thicknessMatches) {
                 sharedColors[color].usages = usages;

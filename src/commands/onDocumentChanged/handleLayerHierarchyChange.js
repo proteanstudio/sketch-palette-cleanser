@@ -1,7 +1,9 @@
 import sketch from 'sketch';
 
 export default function handleLayerHierarchyChange(changePaths, colorPathDict, document) {
-    const [initialPathIndeces, finalPathIndeces] = changePaths.map((path) => path.match(/\d+/g).map(Number));
+    const [initialPathIndeces, finalPathIndeces] = changePaths.map((path) =>
+        path.match(/\d+/g).map(Number)
+    );
 
     let keysToAdd = {};
 

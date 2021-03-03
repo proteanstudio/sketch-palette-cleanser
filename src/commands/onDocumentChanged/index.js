@@ -30,7 +30,8 @@ export function onDocumentChanged(context) {
     const changePath = changePaths[0];
     const changePathSegments = changePath.match(/([a-z])\w+/g);
     const isNewSharedStyle = changePath.includes('layerStyles') && changePathSegments.length === 1;
-    const isSharedStyleRename = changePath.includes('layerStyles') && changePathSegments.length === 2;
+    const isSharedStyleRename =
+        changePath.includes('layerStyles') && changePathSegments.length === 2;
     const colorVarChangePath = changePaths.find((path) => path.includes('sharedSwatches'));
     const isColorVarChange = !!colorVarChangePath;
 
@@ -45,7 +46,8 @@ export function onDocumentChanged(context) {
 
     const [, abIndex] = changePath.match(/\d+/g);
 
-    const hasPopulatedPalette = !!storedColorPathDict && Object.keys(storedColorPathDict).length > 0;
+    const hasPopulatedPalette =
+        !!storedColorPathDict && Object.keys(storedColorPathDict).length > 0;
 
     const isMove = actionContext.isMove && actionContext.isMove();
     const actionType = actionContext.type();
@@ -71,7 +73,8 @@ export function onDocumentChanged(context) {
     }
 
     if (finalSegment === 'color' || finalSegment === 'enabled') {
-        const modifiedCP = finalSegment === 'enabled' ? `${changePath.split('enabled')[0]}color` : changePath;
+        const modifiedCP =
+            finalSegment === 'enabled' ? `${changePath.split('enabled')[0]}color` : changePath;
         handleChangedColor(modifiedCP, storedColorPathDict, document);
         return;
     }

@@ -3,10 +3,5 @@
     "singleQuote": true,
     "jsxSingleQuote": false,
     "useTabs": false,
-    "printWidth": 120,"overrides": [
-        {
-          "files": ".cjs",
-          "options": { "parser": "babel" }
-        }
-      ]
+    "printWidth": 100
 }
