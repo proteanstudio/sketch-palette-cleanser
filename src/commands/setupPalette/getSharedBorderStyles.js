@@ -1,8 +1,10 @@
 import roundThickness from '../sharedMethods/roundThickness';
 
-export default function getSharedBorderStyles(document) {
+export default function getSharedBorderStyles(document, colorVars) {
     return document.sharedLayerStyles.reduce((acc, { name, style: { borders } }) => {
         borders.forEach(({ color, thickness }) => {
+            if (colorVars[color]) return;
+
             if (acc[color]) {
                 acc[color].sharedKeys.push(name);
 
