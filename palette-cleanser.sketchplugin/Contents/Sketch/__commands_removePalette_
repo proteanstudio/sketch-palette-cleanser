@@ -88,22 +88,23 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/commands/removePalette/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
-/******/ ({
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
 
-/***/ "./src/commands/removePalette/index.js":
-/*!*********************************************!*\
-  !*** ./src/commands/removePalette/index.js ***!
-  \*********************************************/
-/*! exports provided: default */
+module.exports = require("sketch");
+
+/***/ }),
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return removePalette; });
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 
 var Document = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Document,
@@ -126,20 +127,8 @@ function removePalette() {
   Settings.setDocumentSettingForKey(document, 'layer-borders', undefined);
 }
 
-/***/ }),
-
-/***/ "sketch":
-/*!*************************!*\
-  !*** external "sketch" ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("sketch");
-
 /***/ })
-
-/******/ });
+/******/ ]);
     if (key === 'default' && typeof exports === 'function') {
       exports(context);
     } else if (typeof exports[key] !== 'function') {
