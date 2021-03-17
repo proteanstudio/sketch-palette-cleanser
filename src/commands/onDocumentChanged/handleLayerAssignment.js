@@ -42,17 +42,20 @@ export default function handleChangedLayer(changePath, colorPathDict, document, 
 
     const basePath = changePath.split('.sharedStyleID')[0];
 
-    const { fillColor, borderColor, sharedStyleId } = layerAndStyleIndeces.reduce((acc, itemIndex, index, arr) => {
-        if (index === arr.length - 1) {
-            const layer = acc.layers[itemIndex];
-            return {
-                fillColor: layer.style.fills[0],
-                borderColor: layer.style.borders[0],
-                sharedStyleId: layer.sharedStyleId,
-            };
-        }
-        return layer;
-    }, document.pages[pageIndex].layers[abIndex]);
+    const { fillColor, borderColor, sharedStyleId } = layerAndStyleIndeces.reduce(
+        (acc, itemIndex, index, arr) => {
+            if (index === arr.length - 1) {
+                const layer = acc.layers[itemIndex];
+                return {
+                    fillColor: layer.style.fills[0],
+                    borderColor: layer.style.borders[0],
+                    sharedStyleId: layer.sharedStyleId,
+                };
+            }
+            return layer;
+        },
+        document.pages[pageIndex].layers[abIndex]
+    );
 
     isNewSharedStyle && addSharedStyle(fillColor, borderColor, sharedStyleId, document);
 
@@ -66,7 +69,14 @@ export default function handleChangedLayer(changePath, colorPathDict, document, 
         delete colorPathDict[fillPath];
     }
 
-    updatePaletteItem(document, previousFillColor, updatedFillColor, undefined, 'fill', isNewSharedStyle);
+    updatePaletteItem(
+        document,
+        previousFillColor,
+        updatedFillColor,
+        undefined,
+        'fill',
+        isNewSharedStyle
+    );
 
     const borderPath = `${basePath}.style.borders[0].color`;
     const previousBorderColor = colorPathDict[borderPath];

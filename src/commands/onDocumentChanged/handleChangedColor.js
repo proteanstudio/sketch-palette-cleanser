@@ -1,25 +1,17 @@
 import sketch from 'sketch';
+import findCurrentStyleFromPath from '../sharedMethods/findCurrentStyleFromPath';
 import updatePaletteItem from './updatePaletteItem';
 
 export default function handleChangedColor(changePath, colorPathDict, document) {
-    const [pageIndex, abIndex, ...layerAndStyleIndeces] = changePath.match(/\d+/g);
     const styleType = changePath.includes('border') ? 'border' : 'fill';
 
-    const updatedStyle = layerAndStyleIndeces.reduce((acc, itemIndex, index, arr) => {
-        if (index === arr.length - 1) {
-            // TODO: Account for border thickness changes
-            return acc.style[`${styleType}s`][itemIndex];
-        }
-        return acc.layers[itemIndex];
-    }, document.pages[pageIndex].layers[abIndex]);
+    const { color: updatedColor, thickness: updatedThickness } = findCurrentStyleFromPath(
+        changePath,
+        document,
+        styleType
+    );
 
-    let updatedColor;
-    let updatedThickness;
-
-    if (updatedStyle.enabled) {
-        updatedColor = updatedStyle.color;
-        updatedThickness = updatedStyle.thickness;
-    }
+    // TODO: Account for border thickness changes
 
     const previousColor = colorPathDict[changePath];
     colorPathDict[changePath] = updatedColor;

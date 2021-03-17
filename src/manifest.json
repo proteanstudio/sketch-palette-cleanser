@@ -7,7 +7,7 @@
     "version": "1.0.4",
     "identifier": "com.example.sketch.plugin.palette-cleanser",
     "appcast": "https://raw.githubusercontent.com/proteanstudio/sketch-palette-cleanser/master/.appcast.xml",
-    "compatibleVersion": "67.2",
+    "compatibleVersion": "70.6",
     "icon": "icon.png",
     "commands": [
         {
@@ -35,6 +35,9 @@
     ],
     "menu": {
         "title": "🎨 Palette Cleanser",
-        "items": ["palette-cleanser.setupPalette-identifier", "palette-cleanser.removePalette-identifier"]
+        "items": [
+            "palette-cleanser.setupPalette-identifier",
+            "palette-cleanser.removePalette-identifier"
+        ]
     }
 }

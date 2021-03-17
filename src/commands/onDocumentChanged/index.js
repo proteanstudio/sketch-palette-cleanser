@@ -2,30 +2,38 @@ import sketch from 'sketch';
 import handleLayerDeletion from './handleLayerDeletion';
 import handleLayerAssignment from './handleLayerAssignment';
 import handleChangedColor from './handleChangedColor';
-import handleLayerHierarchyChange from './handleLayerHierachyChange';
+import handleLayerHierarchyChange from './handleLayerHierarchyChange';
 import handleSharedStyleRename from './handleSharedStyleRename';
+import handleColorVarChange from './handleColorVarChange';
 
 const { Settings, Document } = sketch;
 
 /* {
     [color: string]: {
-        sharedKeys?: string[],
-        thicknesses?: number[]
-        usages: number
+        sharedKeys?: string[];
+        thicknesses?: number[];
+        usages: number;
     }
 } */
 
 export function onDocumentChanged(context) {
     const document = Document.getSelectedDocument();
 
+    let storedColorPathDict = Settings.documentSettingForKey(document, 'color-path-dictionary');
+
+    if (storedColorPathDict === undefined) return;
+
     const changePaths = Array.from(context.actionContext).map((actionContext) =>
         actionContext.fullPath().toString().trim()
     );
 
-    let changePath = changePaths[0];
-    let changePathSegments = changePath.match(/([a-z])\w+/g);
-    let isNewSharedStyle = changePath.includes('layerStyles') && changePathSegments.length === 1;
-    let isSharedStyleRename = changePath.includes('layerStyles') && changePathSegments.length === 2;
+    const changePath = changePaths[0];
+    const changePathSegments = changePath.match(/([a-z])\w+/g);
+    const isNewSharedStyle = changePath.includes('layerStyles') && changePathSegments.length === 1;
+    const isSharedStyleRename =
+        changePath.includes('layerStyles') && changePathSegments.length === 2;
+    const colorVarChangePath = changePaths.find((path) => path.includes('sharedSwatches'));
+    const isColorVarChange = !!colorVarChangePath;
 
     if (isNewSharedStyle) {
         changePath = changePaths[1];
@@ -38,8 +46,8 @@ export function onDocumentChanged(context) {
 
     const [, abIndex] = changePath.match(/\d+/g);
 
-    let storedColorPathDict = Settings.documentSettingForKey(document, 'color-path-dictionary');
-    const hasPopulatedPalette = !!storedColorPathDict && Object.keys(storedColorPathDict).length > 0;
+    const hasPopulatedPalette =
+        !!storedColorPathDict && Object.keys(storedColorPathDict).length > 0;
 
     const isMove = actionContext.isMove && actionContext.isMove();
     const actionType = actionContext.type();
@@ -52,6 +60,11 @@ export function onDocumentChanged(context) {
         return;
     }
 
+    if (isColorVarChange) {
+        handleColorVarChange(changePath, document, colorVarChangePath, storedColorPathDict);
+        return;
+    }
+
     if (!hasPopulatedPalette || layerDepthArr.length < 2 || abIndex === '0') return;
 
     if (finalSegment === 'sharedStyleID' || finalSegment === 'layer') {
@@ -60,7 +73,8 @@ export function onDocumentChanged(context) {
     }
 
     if (finalSegment === 'color' || finalSegment === 'enabled') {
-        const modifiedCP = finalSegment === 'enabled' ? `${changePath.split('enabled')[0]}color` : changePath;
+        const modifiedCP =
+            finalSegment === 'enabled' ? `${changePath.split('enabled')[0]}color` : changePath;
         handleChangedColor(modifiedCP, storedColorPathDict, document);
         return;
     }

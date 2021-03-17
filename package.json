@@ -7,7 +7,7 @@
         "url": "https://github.com/proteanstudio/sketch-palette-cleanser.git"
     },
     "engines": {
-        "sketch": ">=49.0"
+        "sketch": ">=70.0"
     },
     "skpm": {
         "name": "palette-cleanser",
@@ -27,8 +27,8 @@
         "format:fix": "prettier --write 'src/'"
     },
     "devDependencies": {
-        "@skpm/builder": "^0.7.0",
-        "prettier": "2.0.5"
+        "@skpm/builder": "^0.7.11",
+        "prettier": "2.2.1"
     },
     "author": "Protean Studio <admin@protean.studio>"
 }
