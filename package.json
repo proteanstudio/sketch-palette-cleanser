@@ -1,7 +1,7 @@
 {
     "name": "palette-cleanser",
     "description": "Get a full rundown of the colors you're using in your Sketch document.",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/proteanstudio/sketch-palette-cleanser.git"
