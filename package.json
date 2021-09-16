@@ -27,8 +27,8 @@
         "format:fix": "prettier --write 'src/'"
     },
     "devDependencies": {
-        "@skpm/builder": "^0.7.11",
-        "prettier": "2.2.1"
+        "@skpm/builder": "^0.8.0",
+        "prettier": "2.4.1"
     },
     "author": "Protean Studio <admin@protean.studio>"
 }

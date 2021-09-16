@@ -88,55 +88,16 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/commands/setupPalette/index.js");
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+/******/ ({
 
-module.exports = require("sketch");
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayWithoutHoles = __webpack_require__(6);
-
-var iterableToArray = __webpack_require__(7);
-
-var unsupportedIterableToArray = __webpack_require__(4);
-
-var nonIterableSpread = __webpack_require__(8);
-
-function _toConsumableArray(arr) {
-  return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
-}
-
-module.exports = _toConsumableArray;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayWithHoles = __webpack_require__(9);
-
-var iterableToArrayLimit = __webpack_require__(10);
-
-var unsupportedIterableToArray = __webpack_require__(4);
-
-var nonIterableRest = __webpack_require__(11);
-
-function _slicedToArray(arr, i) {
-  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
-}
-
-module.exports = _slicedToArray;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-/* 3 */
+/***/ "./node_modules/@babel/runtime/helpers/arrayLikeToArray.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
+  \*****************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
 function _arrayLikeToArray(arr, len) {
@@ -153,30 +114,51 @@ module.exports = _arrayLikeToArray;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
 
-var arrayLikeToArray = __webpack_require__(3);
+/***/ "./node_modules/@babel/runtime/helpers/arrayWithHoles.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayWithHoles.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
 }
 
-module.exports = _unsupportedIterableToArray;
+module.exports = _arrayWithHoles;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 5 */
+
+/***/ "./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js ***!
+  \******************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var setPrototypeOf = __webpack_require__(12);
+var arrayLikeToArray = __webpack_require__(/*! ./arrayLikeToArray.js */ "./node_modules/@babel/runtime/helpers/arrayLikeToArray.js");
 
-var isNativeReflectConstruct = __webpack_require__(13);
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return arrayLikeToArray(arr);
+}
+
+module.exports = _arrayWithoutHoles;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/construct.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/construct.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var setPrototypeOf = __webpack_require__(/*! ./setPrototypeOf.js */ "./node_modules/@babel/runtime/helpers/setPrototypeOf.js");
+
+var isNativeReflectConstruct = __webpack_require__(/*! ./isNativeReflectConstruct.js */ "./node_modules/@babel/runtime/helpers/isNativeReflectConstruct.js");
 
 function _construct(Parent, args, Class) {
   if (isNativeReflectConstruct()) {
@@ -202,20 +184,37 @@ module.exports = _construct;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
 
-var arrayLikeToArray = __webpack_require__(3);
+/***/ "./node_modules/@babel/runtime/helpers/isNativeReflectConstruct.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/isNativeReflectConstruct.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return arrayLikeToArray(arr);
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 
-module.exports = _arrayWithoutHoles;
+module.exports = _isNativeReflectConstruct;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 7 */
+
+/***/ "./node_modules/@babel/runtime/helpers/iterableToArray.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/iterableToArray.js ***!
+  \****************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
 function _iterableToArray(iter) {
@@ -226,29 +225,12 @@ module.exports = _iterableToArray;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 8 */
-/***/ (function(module, exports) {
 
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-module.exports = _nonIterableSpread;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-module.exports = _arrayWithHoles;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-/* 10 */
+/***/ "./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js ***!
+  \*********************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
 function _iterableToArrayLimit(arr, i) {
@@ -282,7 +264,12 @@ module.exports = _iterableToArrayLimit;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 11 */
+
+/***/ "./node_modules/@babel/runtime/helpers/nonIterableRest.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/nonIterableRest.js ***!
+  \****************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
 function _nonIterableRest() {
@@ -293,7 +280,28 @@ module.exports = _nonIterableRest;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 12 */
+
+/***/ "./node_modules/@babel/runtime/helpers/nonIterableSpread.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/nonIterableSpread.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+module.exports = _nonIterableSpread;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/setPrototypeOf.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/setPrototypeOf.js ***!
+  \***************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
 function _setPrototypeOf(o, p) {
@@ -310,41 +318,297 @@ module.exports = _setPrototypeOf;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 13 */
-/***/ (function(module, exports) {
 
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
+/***/ "./node_modules/@babel/runtime/helpers/slicedToArray.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/slicedToArray.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-  try {
-    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
+var arrayWithHoles = __webpack_require__(/*! ./arrayWithHoles.js */ "./node_modules/@babel/runtime/helpers/arrayWithHoles.js");
+
+var iterableToArrayLimit = __webpack_require__(/*! ./iterableToArrayLimit.js */ "./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js");
+
+var unsupportedIterableToArray = __webpack_require__(/*! ./unsupportedIterableToArray.js */ "./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js");
+
+var nonIterableRest = __webpack_require__(/*! ./nonIterableRest.js */ "./node_modules/@babel/runtime/helpers/nonIterableRest.js");
+
+function _slicedToArray(arr, i) {
+  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
 }
 
-module.exports = _isNativeReflectConstruct;
+module.exports = _slicedToArray;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 14 */
+
+/***/ "./node_modules/@babel/runtime/helpers/toConsumableArray.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/toConsumableArray.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayWithoutHoles = __webpack_require__(/*! ./arrayWithoutHoles.js */ "./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js");
+
+var iterableToArray = __webpack_require__(/*! ./iterableToArray.js */ "./node_modules/@babel/runtime/helpers/iterableToArray.js");
+
+var unsupportedIterableToArray = __webpack_require__(/*! ./unsupportedIterableToArray.js */ "./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js");
+
+var nonIterableSpread = __webpack_require__(/*! ./nonIterableSpread.js */ "./node_modules/@babel/runtime/helpers/nonIterableSpread.js");
+
+function _toConsumableArray(arr) {
+  return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
+}
+
+module.exports = _toConsumableArray;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayLikeToArray = __webpack_require__(/*! ./arrayLikeToArray.js */ "./node_modules/@babel/runtime/helpers/arrayLikeToArray.js");
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
+}
+
+module.exports = _unsupportedIterableToArray;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
+/***/ "./src/commands/setupPalette/buildColumnGroup.js":
+/*!*******************************************************!*\
+  !*** ./src/commands/setupPalette/buildColumnGroup.js ***!
+  \*******************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return buildColumnGroup; });
+/* harmony import */ var _babel_runtime_helpers_construct__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/construct */ "./node_modules/@babel/runtime/helpers/construct.js");
+/* harmony import */ var _babel_runtime_helpers_construct__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_construct__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_2__);
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, "default", function() { return /* binding */ setupPalette; });
 
-// EXTERNAL MODULE: external "sketch"
-var external_sketch_ = __webpack_require__(0);
-var external_sketch_default = /*#__PURE__*/__webpack_require__.n(external_sketch_);
 
-// CONCATENATED MODULE: ./src/commands/setupPalette/getColorVariables.js
+function buildColumnGroup(name, frame, headerText, subText) {
+  return new sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Group({
+    name: name,
+    frame: _babel_runtime_helpers_construct__WEBPACK_IMPORTED_MODULE_0___default()(sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Rectangle, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(frame)),
+    layers: [{
+      type: sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Types.Text,
+      text: headerText,
+      style: {
+        fontSize: 48,
+        fontWeight: 9,
+        fontFamily: 'PT Sans',
+        kerning: null,
+        paragraphSpacing: 0,
+        textColor: '#000000ff',
+        borders: []
+      }
+    }, {
+      type: sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Types.Text,
+      text: subText,
+      style: {
+        fontSize: 14,
+        fontFamily: 'PT Sans',
+        kerning: null,
+        paragraphSpacing: 0,
+        textColor: '#000000ff',
+        borders: []
+      },
+      frame: new sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Rectangle(0, 60, 350, 20),
+      fixedWidth: true
+    }]
+  });
+}
+
+/***/ }),
+
+/***/ "./src/commands/setupPalette/buildPaletteBoard.js":
+/*!********************************************************!*\
+  !*** ./src/commands/setupPalette/buildPaletteBoard.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return buildPaletteBoard; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./buildSectionGroup */ "./src/commands/setupPalette/buildSectionGroup.js");
+/* harmony import */ var _sharedMethods_addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sharedMethods/addLayerIfPresent */ "./src/commands/sharedMethods/addLayerIfPresent.js");
+/* harmony import */ var _buildColumnGroup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./buildColumnGroup */ "./src/commands/setupPalette/buildColumnGroup.js");
+/* harmony import */ var _utils_loc__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/loc */ "./src/utils/loc.js");
+
+
+
+
+
+var Settings = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Settings,
+    Rectangle = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle,
+    Artboard = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Artboard;
+function buildPaletteBoard(document, colorVars, sharedFills, layerFills, sharedBorders, layerBorders) {
+  var artboards = document.pages.map(function (page) {
+    return page.layers;
+  }).flat();
+  var paletteBoardId = Settings.documentSettingForKey(document, 'palette-board-id');
+  var paletteBoard = artboards.filter(function (ab) {
+    return ab.id === paletteBoardId;
+  })[0];
+
+  if (!paletteBoard) {
+    var firstPage = document.pages[0];
+    var lowestY = firstPage.layers.map(function (layer) {
+      return layer.frame.y;
+    }).sort(function (a, b) {
+      return a - b;
+    })[0];
+    var lowestX = firstPage.layers.map(function (layer) {
+      return layer.frame.x;
+    }).sort(function (a, b) {
+      return a - b;
+    })[0];
+    var boardFrame = new Rectangle(lowestX - 2000, lowestY, 1475, 2000);
+    paletteBoard = new Artboard({
+      name: Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('paletteName'),
+      flowStartPoint: true,
+      frame: boardFrame
+    });
+    Settings.setDocumentSettingForKey(document, 'palette-board-id', paletteBoard.id);
+  }
+
+  var coordinates = {
+    x: 0,
+    y: 150
+  };
+  var colorVarsGroup = Object(_buildColumnGroup__WEBPACK_IMPORTED_MODULE_3__["default"])('color-variables', [75, 75, 400, coordinates.y], Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('colors.title'), Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('colors.subtitle'));
+  var cVCGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'color-var-colors', '', colorVars, 'variable');
+  Object(_sharedMethods_addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__["default"])(cVCGroup, colorVarsGroup);
+  var sharedStylesGroup = Object(_buildColumnGroup__WEBPACK_IMPORTED_MODULE_3__["default"])('shared-palette-styles', [550, 75, 400, coordinates.y], Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('shared.title'), Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('shared.subtitle'));
+  var colorVarsY = coordinates.y;
+  coordinates.y = 150;
+  var sLFCGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'shared-layer-fills', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('fillsHeader'), sharedFills);
+  var sLBCGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'shared-layer-borders', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('bordersHeader'), sharedBorders, 'border');
+  Object(_sharedMethods_addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__["default"])(sLFCGroup, sharedStylesGroup);
+  Object(_sharedMethods_addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__["default"])(sLBCGroup, sharedStylesGroup);
+  var uniqueStylesX = 1025;
+  var hasSharedColors = sharedStylesGroup.layers.length > 2;
+
+  if (!hasSharedColors) {
+    uniqueStylesX = 550;
+    paletteBoard.frame.width = 1000;
+  }
+
+  var uniqueStylesGroup = Object(_buildColumnGroup__WEBPACK_IMPORTED_MODULE_3__["default"])('unique-palette-styles', [uniqueStylesX, 75, 350, coordinates.y], Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('unique.title'), Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('unique.subtitle'));
+  var sharedStylesY = coordinates.y;
+  coordinates.y = 150;
+  var lFGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'layer-fills', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('fillsHeader'), layerFills);
+  var lBGroup = Object(_buildSectionGroup__WEBPACK_IMPORTED_MODULE_1__["default"])(coordinates, 'layer-borders', Object(_utils_loc__WEBPACK_IMPORTED_MODULE_4__["default"])('bordersHeader'), layerBorders, 'border');
+  Object(_sharedMethods_addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__["default"])(lFGroup, uniqueStylesGroup);
+  Object(_sharedMethods_addLayerIfPresent__WEBPACK_IMPORTED_MODULE_2__["default"])(lBGroup, uniqueStylesGroup);
+  paletteBoard.layers = [colorVarsGroup, sharedStylesGroup, uniqueStylesGroup].filter(function (group) {
+    return !!group && group.layers.length > 2;
+  });
+  paletteBoard.frame.height = Math.max(colorVarsY, sharedStylesY, coordinates.y) + 100;
+  document.pages[0].layers.unshift(paletteBoard);
+}
+
+/***/ }),
+
+/***/ "./src/commands/setupPalette/buildSectionGroup.js":
+/*!********************************************************!*\
+  !*** ./src/commands/setupPalette/buildSectionGroup.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return buildSectionGroup; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _sharedMethods_buildPaletteCell__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../sharedMethods/buildPaletteCell */ "./src/commands/sharedMethods/buildPaletteCell.js");
+
+
+function buildSectionGroup(coordinates, name, label, colorDict) {
+  var type = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'fill';
+  var colors = Object.entries(colorDict);
+  if (colors.length === 0) return;
+  var layers = [];
+
+  if (label) {
+    layers = [{
+      type: sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Types.Text,
+      text: label,
+      style: {
+        fontSize: 30,
+        fontWeight: 12,
+        fontFamily: 'PT Sans',
+        kerning: null,
+        paragraphSpacing: 0,
+        textColor: '#000000ff',
+        borders: []
+      },
+      frame: new sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle(0, coordinates.y, 300, 70)
+    }, {
+      type: sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Types.ShapePath,
+      shapeType: sketch__WEBPACK_IMPORTED_MODULE_0___default.a.ShapePath.ShapeType.Rectangle,
+      style: {
+        fills: [],
+        borders: [{
+          color: '#bcbcbc',
+          thickness: 1
+        }]
+      },
+      frame: new sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Rectangle(0, coordinates.y + 40, 350, 1)
+    }];
+  }
+
+  coordinates.y += 52;
+  colors.forEach(function (color) {
+    layers.push(Object(_sharedMethods_buildPaletteCell__WEBPACK_IMPORTED_MODULE_1__["default"])(color, type, coordinates));
+  });
+  var group = new sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Group({
+    name: name,
+    layers: layers
+  });
+  coordinates.y += 30;
+  return group;
+}
+
+/***/ }),
+
+/***/ "./src/commands/setupPalette/getColorVariables.js":
+/*!********************************************************!*\
+  !*** ./src/commands/setupPalette/getColorVariables.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return getColorVariables; });
 function getColorVariables(document) {
   return document.swatches.reduce(function (acc, _ref) {
     var name = _ref.name,
@@ -362,7 +626,62 @@ function getColorVariables(document) {
     return acc;
   }, {});
 }
-// CONCATENATED MODULE: ./src/commands/setupPalette/getSharedFillStyles.js
+
+/***/ }),
+
+/***/ "./src/commands/setupPalette/getSharedBorderStyles.js":
+/*!************************************************************!*\
+  !*** ./src/commands/setupPalette/getSharedBorderStyles.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return getSharedBorderStyles; });
+/* harmony import */ var _sharedMethods_roundThickness__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sharedMethods/roundThickness */ "./src/commands/sharedMethods/roundThickness.js");
+
+function getSharedBorderStyles(document, colorVars) {
+  return document.sharedLayerStyles.reduce(function (acc, _ref) {
+    var name = _ref.name,
+        borders = _ref.style.borders;
+    borders.forEach(function (_ref2) {
+      var color = _ref2.color,
+          thickness = _ref2.thickness;
+      if (colorVars[color]) return;
+
+      if (acc[color]) {
+        acc[color].sharedKeys.push(name);
+
+        if (!acc[color].thicknesses.includes(thickness)) {
+          acc[color].thicknesses.push(Object(_sharedMethods_roundThickness__WEBPACK_IMPORTED_MODULE_0__["default"])(thickness));
+        }
+
+        return;
+      }
+
+      acc[color] = {
+        sharedKeys: [name],
+        thicknesses: [Object(_sharedMethods_roundThickness__WEBPACK_IMPORTED_MODULE_0__["default"])(thickness)],
+        usages: 0
+      };
+    });
+    return acc;
+  }, {});
+}
+
+/***/ }),
+
+/***/ "./src/commands/setupPalette/getSharedFillStyles.js":
+/*!**********************************************************!*\
+  !*** ./src/commands/setupPalette/getSharedFillStyles.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return getSharedFillStyles; });
 function getSharedFillStyles(document, colorVars) {
   return document.sharedLayerStyles.reduce(function (acc, _ref) {
     var name = _ref.name,
@@ -384,46 +703,79 @@ function getSharedFillStyles(document, colorVars) {
     return acc;
   }, {});
 }
-// CONCATENATED MODULE: ./src/commands/sharedMethods/roundThickness.js
-function roundThickness(thickness) {
-  if (Number.isInteger(thickness)) return thickness;
-  return Number(thickness.toFixed(2));
+
+/***/ }),
+
+/***/ "./src/commands/setupPalette/index.js":
+/*!********************************************!*\
+  !*** ./src/commands/setupPalette/index.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return setupPalette; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _getColorVariables__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getColorVariables */ "./src/commands/setupPalette/getColorVariables.js");
+/* harmony import */ var _getSharedFillStyles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./getSharedFillStyles */ "./src/commands/setupPalette/getSharedFillStyles.js");
+/* harmony import */ var _getSharedBorderStyles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getSharedBorderStyles */ "./src/commands/setupPalette/getSharedBorderStyles.js");
+/* harmony import */ var _parseLayers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./parseLayers */ "./src/commands/setupPalette/parseLayers.js");
+/* harmony import */ var _processLayerColors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./processLayerColors */ "./src/commands/setupPalette/processLayerColors.js");
+/* harmony import */ var _buildPaletteBoard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./buildPaletteBoard */ "./src/commands/setupPalette/buildPaletteBoard.js");
+/* harmony import */ var _utils_loc__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/loc */ "./src/utils/loc.js");
+
+
+
+
+
+
+
+
+var Document = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Document,
+    Settings = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.Settings,
+    message = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message;
+function setupPalette() {
+  var document = Document.getSelectedDocument();
+  var colorVars = Object(_getColorVariables__WEBPACK_IMPORTED_MODULE_1__["default"])(document);
+  var sharedFills = Object(_getSharedFillStyles__WEBPACK_IMPORTED_MODULE_2__["default"])(document, colorVars);
+  var sharedBorders = Object(_getSharedBorderStyles__WEBPACK_IMPORTED_MODULE_3__["default"])(document, colorVars);
+
+  var _parseLayers = Object(_parseLayers__WEBPACK_IMPORTED_MODULE_4__["default"])(document),
+      colorPathDictionary = _parseLayers.colorPathDictionary,
+      layerFills = _parseLayers.layerFills,
+      layerBorders = _parseLayers.layerBorders;
+
+  Object(_processLayerColors__WEBPACK_IMPORTED_MODULE_5__["default"])(colorVars, sharedFills, layerFills);
+  Object(_processLayerColors__WEBPACK_IMPORTED_MODULE_5__["default"])(colorVars, sharedBorders, layerBorders);
+  Settings.setDocumentSettingForKey(document, 'color-path-dictionary', colorPathDictionary);
+  Settings.setDocumentSettingForKey(document, 'color-variables', colorVars);
+  Settings.setDocumentSettingForKey(document, 'shared-fills', sharedFills);
+  Settings.setDocumentSettingForKey(document, 'shared-borders', sharedBorders);
+  Settings.setDocumentSettingForKey(document, 'layer-fills', layerFills);
+  Settings.setDocumentSettingForKey(document, 'layer-borders', layerBorders);
+  Object(_buildPaletteBoard__WEBPACK_IMPORTED_MODULE_6__["default"])(document, colorVars, sharedFills, layerFills, sharedBorders, layerBorders);
+  message(Object(_utils_loc__WEBPACK_IMPORTED_MODULE_7__["default"])('messages.paletteBuilt'));
 }
-// CONCATENATED MODULE: ./src/commands/setupPalette/getSharedBorderStyles.js
 
-function getSharedBorderStyles(document, colorVars) {
-  return document.sharedLayerStyles.reduce(function (acc, _ref) {
-    var name = _ref.name,
-        borders = _ref.style.borders;
-    borders.forEach(function (_ref2) {
-      var color = _ref2.color,
-          thickness = _ref2.thickness;
-      if (colorVars[color]) return;
+/***/ }),
 
-      if (acc[color]) {
-        acc[color].sharedKeys.push(name);
+/***/ "./src/commands/setupPalette/parseLayers.js":
+/*!**************************************************!*\
+  !*** ./src/commands/setupPalette/parseLayers.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-        if (!acc[color].thicknesses.includes(thickness)) {
-          acc[color].thicknesses.push(roundThickness(thickness));
-        }
-
-        return;
-      }
-
-      acc[color] = {
-        sharedKeys: [name],
-        thicknesses: [roundThickness(thickness)],
-        usages: 0
-      };
-    });
-    return acc;
-  }, {});
-}
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/toConsumableArray.js
-var toConsumableArray = __webpack_require__(1);
-var toConsumableArray_default = /*#__PURE__*/__webpack_require__.n(toConsumableArray);
-
-// CONCATENATED MODULE: ./src/commands/setupPalette/parseLayers.js
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return parseLayers; });
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _sharedMethods_roundThickness__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sharedMethods/roundThickness */ "./src/commands/sharedMethods/roundThickness.js");
 
 
 
@@ -431,7 +783,7 @@ function parseLayers(document) {
   var layerFills = {};
   var layerBorders = {};
   var colorPathDictionary = document.pages.reduce(function (acc, page, pageIndex) {
-    var paletteBoardId = external_sketch_default.a.Settings.documentSettingForKey(document, 'palette-board-id');
+    var paletteBoardId = sketch__WEBPACK_IMPORTED_MODULE_1___default.a.Settings.documentSettingForKey(document, 'palette-board-id');
     page.layers.filter(function (ab) {
       return ab.id !== paletteBoardId;
     }).forEach(function (ab, abIndex) {
@@ -477,7 +829,7 @@ function parseLayers(document) {
 
             if (layerBorders[color]) {
               if (!layerBorders[color].thicknesses.includes(thickness)) {
-                layerBorders[color].thicknesses.push(roundThickness(thickness));
+                layerBorders[color].thicknesses.push(Object(_sharedMethods_roundThickness__WEBPACK_IMPORTED_MODULE_2__["default"])(thickness));
               }
 
               layerBorders[color].usages++;
@@ -486,13 +838,13 @@ function parseLayers(document) {
 
             layerBorders[color] = {
               usages: 1,
-              thicknesses: [roundThickness(thickness)]
+              thicknesses: [Object(_sharedMethods_roundThickness__WEBPACK_IMPORTED_MODULE_2__["default"])(thickness)]
             };
           }
         });
 
         if (Array.isArray(layer.layers)) {
-          var storedIndeces = toConsumableArray_default()(layerIndeces);
+          var storedIndeces = _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(layerIndeces);
 
           layerIndeces.push(layerIndex);
           layer.layers.forEach(layerLoop);
@@ -510,11 +862,256 @@ function parseLayers(document) {
     layerFills: layerFills
   };
 }
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/slicedToArray.js
-var slicedToArray = __webpack_require__(2);
-var slicedToArray_default = /*#__PURE__*/__webpack_require__.n(slicedToArray);
 
-// CONCATENATED MODULE: ./src/utils/arrayMatches.js
+/***/ }),
+
+/***/ "./src/commands/setupPalette/processLayerColors.js":
+/*!*********************************************************!*\
+  !*** ./src/commands/setupPalette/processLayerColors.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return processLayerColors; });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_arrayMatches__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/arrayMatches */ "./src/utils/arrayMatches.js");
+
+
+function processLayerColors(colorVars, sharedColors, layerColors) {
+  Object.entries(layerColors).forEach(function (_ref) {
+    var _ref2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref, 2),
+        color = _ref2[0],
+        _ref2$ = _ref2[1],
+        usages = _ref2$.usages,
+        thicknesses = _ref2$.thicknesses;
+
+    if (colorVars[color]) {
+      colorVars[color].usages += usages;
+      delete layerColors[color];
+      return;
+    }
+
+    if (sharedColors[color]) {
+      var _arrayMatches = Object(_utils_arrayMatches__WEBPACK_IMPORTED_MODULE_1__["default"])(sharedColors[color].thicknesses, thicknesses),
+          thicknessMatches = _arrayMatches.matches,
+          newItems = _arrayMatches.newItems;
+
+      if (thicknessMatches) {
+        sharedColors[color].usages = usages;
+        delete layerColors[color];
+      } else {
+        layerColors[color].thicknesses = newItems;
+      }
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./src/commands/sharedMethods/addLayerIfPresent.js":
+/*!*********************************************************!*\
+  !*** ./src/commands/sharedMethods/addLayerIfPresent.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return addLayerIfPresent; });
+function addLayerIfPresent(layer, group) {
+  if (layer) {
+    group.layers.push(layer);
+  }
+}
+
+/***/ }),
+
+/***/ "./src/commands/sharedMethods/buildPaletteCell.js":
+/*!********************************************************!*\
+  !*** ./src/commands/sharedMethods/buildPaletteCell.js ***!
+  \********************************************************/
+/*! exports provided: buildCellSharedKeyText, buildCellText, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildCellSharedKeyText", function() { return buildCellSharedKeyText; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildCellText", function() { return buildCellText; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return buildPaletteCell; });
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/constants */ "./src/utils/constants.js");
+
+
+
+
+function buildCellSharedKeyText(sharedKeys, localCoordinates, cell) {
+  var colorLayers = [];
+
+  if (Array.isArray(sharedKeys)) {
+    sharedKeys.forEach(function (key) {
+      colorLayers.push({
+        type: sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Types.Text,
+        text: key,
+        style: {
+          fontSize: 17,
+          fontWeight: 12,
+          fontFamily: 'PT Sans',
+          kerning: null,
+          paragraphSpacing: 0,
+          textColor: '#000000ff',
+          borders: []
+        },
+        frame: new sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Rectangle(90, localCoordinates.y, 270, 20),
+        fixedWidth: true
+      });
+      var charLimit = 33; // May need adjustments
+
+      var yAdjustment = Math.ceil(key.length / charLimit) * 20;
+      localCoordinates.y += yAdjustment;
+      cell.height += yAdjustment;
+    });
+  }
+
+  localCoordinates.y += 7;
+  return colorLayers;
+}
+function buildCellText(color, usages, thicknesses, localCoordinates) {
+  var thicknessPrefix = thicknesses ? "".concat(thicknesses.join('px, '), "px ") : '';
+  var opacity = parseInt(color.substring(7, 9), 16) / 255;
+  var opacitySuffix = opacity < 1 ? " (".concat(opacity.toFixed(2).substring(1), " opacity)") : '';
+  var usagesString = "".concat(usages, " use").concat(usages !== 1 ? 's' : '');
+  return [{
+    type: sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Types.Text,
+    text: "".concat(thicknessPrefix).concat(color.substring(0, 7)).concat(opacitySuffix),
+    frame: new sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Rectangle(90, localCoordinates.y, 300, 20),
+    style: {
+      fontSize: 17,
+      fontFamily: 'PT Sans',
+      kerning: null,
+      paragraphSpacing: 0,
+      textColor: '#000000ff',
+      borders: []
+    }
+  }, {
+    type: sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Types.Text,
+    text: usagesString,
+    frame: new sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Rectangle(90, localCoordinates.y + 20, 300, 20),
+    style: {
+      fontSize: 17,
+      fontFamily: 'PT Sans',
+      kerning: null,
+      paragraphSpacing: 0,
+      textColor: '#000000ff',
+      borders: []
+    }
+  }]; // currently need to be last layers in group
+}
+function buildPaletteCell(_ref, type, coordinates) {
+  var _ref2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref, 2),
+      color = _ref2[0],
+      _ref2$ = _ref2[1],
+      sharedKeys = _ref2$.sharedKeys,
+      usages = _ref2$.usages,
+      thicknesses = _ref2$.thicknesses;
+
+  var colorLayers = [];
+  var colorArr = [{
+    color: color
+  }];
+  var colorFills = [];
+  var colorBorders = [];
+
+  if (type === 'border') {
+    colorBorders = colorArr;
+  } else {
+    colorFills = colorArr;
+  }
+
+  if (color.includes('#ffffff')) {
+    var whiteBg = {
+      type: sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Types.ShapePath,
+      shapeType: sketch__WEBPACK_IMPORTED_MODULE_2___default.a.ShapePath.ShapeType.Rectangle,
+      style: {
+        fills: [{
+          color: '#000000'
+        }],
+        borders: []
+      },
+      frame: new sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Rectangle(0, 0, 80, 80)
+    };
+    colorLayers.push(whiteBg);
+  }
+
+  var localCoordinates = {
+    x: 10,
+    y: 10
+  };
+  var colorShape = {
+    type: sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Types.ShapePath,
+    shapeType: sketch__WEBPACK_IMPORTED_MODULE_2___default.a.ShapePath.ShapeType.Oval,
+    style: {
+      fills: colorFills,
+      borders: colorBorders,
+      borderOptions: {
+        startArrowHead: 'FilledCircle',
+        endArrowHead: 'FilledCircle'
+      }
+    },
+    frame: new sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Rectangle(localCoordinates.x, localCoordinates.y, 60, 60)
+  };
+  colorLayers.push(colorShape);
+  var cell = {
+    height: _utils_constants__WEBPACK_IMPORTED_MODULE_3__["BASE_CELL_HEIGHT"]
+  };
+  var sharedKeyLayers = buildCellSharedKeyText(sharedKeys, localCoordinates, cell);
+  var textLayers = buildCellText(color, usages, thicknesses, localCoordinates, sharedKeys);
+  colorLayers.push.apply(colorLayers, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(sharedKeyLayers).concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(textLayers)));
+  var colorGroup = new sketch__WEBPACK_IMPORTED_MODULE_2___default.a.Group({
+    name: "".concat(type, ": ").concat(color),
+    layers: colorLayers
+  });
+  colorGroup.frame.y = coordinates.y;
+  coordinates.y += cell.height;
+  return colorGroup;
+}
+
+/***/ }),
+
+/***/ "./src/commands/sharedMethods/roundThickness.js":
+/*!******************************************************!*\
+  !*** ./src/commands/sharedMethods/roundThickness.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return roundThickness; });
+function roundThickness(thickness) {
+  if (Number.isInteger(thickness)) return thickness;
+  return Number(thickness.toFixed(2));
+}
+
+/***/ }),
+
+/***/ "./src/utils/arrayMatches.js":
+/*!***********************************!*\
+  !*** ./src/utils/arrayMatches.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return arrayMatches; });
 function arrayMatches() {
   var arr1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var arr2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
@@ -541,270 +1138,53 @@ function arrayMatches() {
     newItems: newItems
   };
 }
-// CONCATENATED MODULE: ./src/commands/setupPalette/processLayerColors.js
 
+/***/ }),
 
-function processLayerColors(colorVars, sharedColors, layerColors) {
-  Object.entries(layerColors).forEach(function (_ref) {
-    var _ref2 = slicedToArray_default()(_ref, 2),
-        color = _ref2[0],
-        _ref2$ = _ref2[1],
-        usages = _ref2$.usages,
-        thicknesses = _ref2$.thicknesses;
+/***/ "./src/utils/constants.js":
+/*!********************************!*\
+  !*** ./src/utils/constants.js ***!
+  \********************************/
+/*! exports provided: BASE_CELL_HEIGHT */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-    if (colorVars[color]) {
-      colorVars[color].usages += usages;
-      delete layerColors[color];
-      return;
-    }
-
-    if (sharedColors[color]) {
-      var _arrayMatches = arrayMatches(sharedColors[color].thicknesses, thicknesses),
-          thicknessMatches = _arrayMatches.matches,
-          newItems = _arrayMatches.newItems;
-
-      if (thicknessMatches) {
-        sharedColors[color].usages = usages;
-        delete layerColors[color];
-      } else {
-        layerColors[color].thicknesses = newItems;
-      }
-    }
-  });
-}
-// CONCATENATED MODULE: ./src/utils/constants.js
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE_CELL_HEIGHT", function() { return BASE_CELL_HEIGHT; });
 var BASE_CELL_HEIGHT = 95;
-// CONCATENATED MODULE: ./src/commands/sharedMethods/buildPaletteCell.js
 
+/***/ }),
 
+/***/ "./src/utils/loc.js":
+/*!**************************!*\
+  !*** ./src/utils/loc.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return loc; });
+/* harmony import */ var _strings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./strings */ "./src/utils/strings.js");
 
-function buildCellSharedKeyText(sharedKeys, localCoordinates, cell) {
-  var colorLayers = [];
-
-  if (Array.isArray(sharedKeys)) {
-    sharedKeys.forEach(function (key) {
-      colorLayers.push({
-        type: external_sketch_default.a.Types.Text,
-        text: key,
-        style: {
-          fontSize: 17,
-          fontWeight: 12,
-          fontFamily: 'PT Sans',
-          kerning: null,
-          paragraphSpacing: 0,
-          textColor: '#000000ff',
-          borders: []
-        },
-        frame: new external_sketch_default.a.Rectangle(90, localCoordinates.y, 270, 20),
-        fixedWidth: true
-      });
-      var charLimit = 33; // May need adjustments
-
-      var yAdjustment = Math.ceil(key.length / charLimit) * 20;
-      localCoordinates.y += yAdjustment;
-      cell.height += yAdjustment;
-    });
-  }
-
-  localCoordinates.y += 7;
-  return colorLayers;
+function loc(key) {
+  return key.split('.').reduce(function (acc, item) {
+    return acc[item] || '';
+  }, _strings__WEBPACK_IMPORTED_MODULE_0__["default"]);
 }
-function buildCellText(color, usages, thicknesses, localCoordinates) {
-  var thicknessPrefix = thicknesses ? "".concat(thicknesses.join('px, '), "px ") : '';
-  var opacity = parseInt(color.substring(7, 9), 16) / 255;
-  var opacitySuffix = opacity < 1 ? " (".concat(opacity.toFixed(2).substring(1), " opacity)") : '';
-  var usagesString = "".concat(usages, " use").concat(usages !== 1 ? 's' : '');
-  return [{
-    type: external_sketch_default.a.Types.Text,
-    text: "".concat(thicknessPrefix).concat(color.substring(0, 7)).concat(opacitySuffix),
-    frame: new external_sketch_default.a.Rectangle(90, localCoordinates.y, 300, 20),
-    style: {
-      fontSize: 17,
-      fontFamily: 'PT Sans',
-      kerning: null,
-      paragraphSpacing: 0,
-      textColor: '#000000ff',
-      borders: []
-    }
-  }, {
-    type: external_sketch_default.a.Types.Text,
-    text: usagesString,
-    frame: new external_sketch_default.a.Rectangle(90, localCoordinates.y + 20, 300, 20),
-    style: {
-      fontSize: 17,
-      fontFamily: 'PT Sans',
-      kerning: null,
-      paragraphSpacing: 0,
-      textColor: '#000000ff',
-      borders: []
-    }
-  }]; // currently need to be last layers in group
-}
-function buildPaletteCell(_ref, type, coordinates) {
-  var _ref2 = slicedToArray_default()(_ref, 2),
-      color = _ref2[0],
-      _ref2$ = _ref2[1],
-      sharedKeys = _ref2$.sharedKeys,
-      usages = _ref2$.usages,
-      thicknesses = _ref2$.thicknesses;
 
-  var colorLayers = [];
-  var colorArr = [{
-    color: color
-  }];
-  var colorFills = [];
-  var colorBorders = [];
+/***/ }),
 
-  if (type === 'border') {
-    colorBorders = colorArr;
-  } else {
-    colorFills = colorArr;
-  }
+/***/ "./src/utils/strings.js":
+/*!******************************!*\
+  !*** ./src/utils/strings.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-  if (color.includes('#ffffff')) {
-    var whiteBg = {
-      type: external_sketch_default.a.Types.ShapePath,
-      shapeType: external_sketch_default.a.ShapePath.ShapeType.Rectangle,
-      style: {
-        fills: [{
-          color: '#000000'
-        }],
-        borders: []
-      },
-      frame: new external_sketch_default.a.Rectangle(0, 0, 80, 80)
-    };
-    colorLayers.push(whiteBg);
-  }
-
-  var localCoordinates = {
-    x: 10,
-    y: 10
-  };
-  var colorShape = {
-    type: external_sketch_default.a.Types.ShapePath,
-    shapeType: external_sketch_default.a.ShapePath.ShapeType.Oval,
-    style: {
-      fills: colorFills,
-      borders: colorBorders,
-      borderOptions: {
-        startArrowHead: 'FilledCircle',
-        endArrowHead: 'FilledCircle'
-      }
-    },
-    frame: new external_sketch_default.a.Rectangle(localCoordinates.x, localCoordinates.y, 60, 60)
-  };
-  colorLayers.push(colorShape);
-  var cell = {
-    height: BASE_CELL_HEIGHT
-  };
-  var sharedKeyLayers = buildCellSharedKeyText(sharedKeys, localCoordinates, cell);
-  var textLayers = buildCellText(color, usages, thicknesses, localCoordinates, sharedKeys);
-  colorLayers.push.apply(colorLayers, toConsumableArray_default()(sharedKeyLayers).concat(toConsumableArray_default()(textLayers)));
-  var colorGroup = new external_sketch_default.a.Group({
-    name: "".concat(type, ": ").concat(color),
-    layers: colorLayers
-  });
-  colorGroup.frame.y = coordinates.y;
-  coordinates.y += cell.height;
-  return colorGroup;
-}
-// CONCATENATED MODULE: ./src/commands/setupPalette/buildSectionGroup.js
-
-
-function buildSectionGroup(coordinates, name, label, colorDict) {
-  var type = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'fill';
-  var colors = Object.entries(colorDict);
-  if (colors.length === 0) return;
-  var layers = [];
-
-  if (label) {
-    layers = [{
-      type: external_sketch_default.a.Types.Text,
-      text: label,
-      style: {
-        fontSize: 30,
-        fontWeight: 12,
-        fontFamily: 'PT Sans',
-        kerning: null,
-        paragraphSpacing: 0,
-        textColor: '#000000ff',
-        borders: []
-      },
-      frame: new external_sketch_default.a.Rectangle(0, coordinates.y, 300, 70)
-    }, {
-      type: external_sketch_default.a.Types.ShapePath,
-      shapeType: external_sketch_default.a.ShapePath.ShapeType.Rectangle,
-      style: {
-        fills: [],
-        borders: [{
-          color: '#bcbcbc',
-          thickness: 1
-        }]
-      },
-      frame: new external_sketch_default.a.Rectangle(0, coordinates.y + 40, 350, 1)
-    }];
-  }
-
-  coordinates.y += 52;
-  colors.forEach(function (color) {
-    layers.push(buildPaletteCell(color, type, coordinates));
-  });
-  var group = new external_sketch_default.a.Group({
-    name: name,
-    layers: layers
-  });
-  coordinates.y += 30;
-  return group;
-}
-// CONCATENATED MODULE: ./src/commands/sharedMethods/addLayerIfPresent.js
-function addLayerIfPresent(layer, group) {
-  if (layer) {
-    group.layers.push(layer);
-  }
-}
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/construct.js
-var construct = __webpack_require__(5);
-var construct_default = /*#__PURE__*/__webpack_require__.n(construct);
-
-// CONCATENATED MODULE: ./src/commands/setupPalette/buildColumnGroup.js
-
-
-
-function buildColumnGroup(name, frame, headerText, subText) {
-  return new external_sketch_default.a.Group({
-    name: name,
-    frame: construct_default()(external_sketch_default.a.Rectangle, toConsumableArray_default()(frame)),
-    layers: [{
-      type: external_sketch_default.a.Types.Text,
-      text: headerText,
-      style: {
-        fontSize: 48,
-        fontWeight: 9,
-        fontFamily: 'PT Sans',
-        kerning: null,
-        paragraphSpacing: 0,
-        textColor: '#000000ff',
-        borders: []
-      }
-    }, {
-      type: external_sketch_default.a.Types.Text,
-      text: subText,
-      style: {
-        fontSize: 14,
-        fontFamily: 'PT Sans',
-        kerning: null,
-        paragraphSpacing: 0,
-        textColor: '#000000ff',
-        borders: []
-      },
-      frame: new external_sketch_default.a.Rectangle(0, 60, 350, 20),
-      fixedWidth: true
-    }]
-  });
-}
-// CONCATENATED MODULE: ./src/utils/strings.js
-/* harmony default export */ var strings = ({
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
   paletteName: '🎨 Palette Cleanser',
   colors: {
     title: 'Color Variables',
@@ -825,124 +1205,21 @@ function buildColumnGroup(name, frame, headerText, subText) {
     paletteUpdated: '✅ Palette updated ✅'
   }
 });
-// CONCATENATED MODULE: ./src/utils/loc.js
 
-function loc(key) {
-  return key.split('.').reduce(function (acc, item) {
-    return acc[item] || '';
-  }, strings);
-}
-// CONCATENATED MODULE: ./src/commands/setupPalette/buildPaletteBoard.js
+/***/ }),
 
+/***/ "sketch":
+/*!*************************!*\
+  !*** external "sketch" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-
-
-
-var Settings = external_sketch_default.a.Settings,
-    Rectangle = external_sketch_default.a.Rectangle,
-    Artboard = external_sketch_default.a.Artboard;
-function buildPaletteBoard(document, colorVars, sharedFills, layerFills, sharedBorders, layerBorders) {
-  var artboards = document.pages.map(function (page) {
-    return page.layers;
-  }).flat();
-  var paletteBoardId = Settings.documentSettingForKey(document, 'palette-board-id');
-  var paletteBoard = artboards.filter(function (ab) {
-    return ab.id === paletteBoardId;
-  })[0];
-
-  if (!paletteBoard) {
-    var firstPage = document.pages[0];
-    var lowestY = firstPage.layers.map(function (layer) {
-      return layer.frame.y;
-    }).sort(function (a, b) {
-      return a - b;
-    })[0];
-    var lowestX = firstPage.layers.map(function (layer) {
-      return layer.frame.x;
-    }).sort(function (a, b) {
-      return a - b;
-    })[0];
-    var boardFrame = new Rectangle(lowestX - 2000, lowestY, 1475, 2000);
-    paletteBoard = new Artboard({
-      name: loc('paletteName'),
-      flowStartPoint: true,
-      frame: boardFrame
-    });
-    Settings.setDocumentSettingForKey(document, 'palette-board-id', paletteBoard.id);
-  }
-
-  var coordinates = {
-    x: 0,
-    y: 150
-  };
-  var colorVarsGroup = buildColumnGroup('color-variables', [75, 75, 400, coordinates.y], loc('colors.title'), loc('colors.subtitle'));
-  var cVCGroup = buildSectionGroup(coordinates, 'color-var-colors', '', colorVars, 'variable');
-  addLayerIfPresent(cVCGroup, colorVarsGroup);
-  var sharedStylesGroup = buildColumnGroup('shared-palette-styles', [550, 75, 400, coordinates.y], loc('shared.title'), loc('shared.subtitle'));
-  var colorVarsY = coordinates.y;
-  coordinates.y = 150;
-  var sLFCGroup = buildSectionGroup(coordinates, 'shared-layer-fills', loc('fillsHeader'), sharedFills);
-  var sLBCGroup = buildSectionGroup(coordinates, 'shared-layer-borders', loc('bordersHeader'), sharedBorders, 'border');
-  addLayerIfPresent(sLFCGroup, sharedStylesGroup);
-  addLayerIfPresent(sLBCGroup, sharedStylesGroup);
-  var uniqueStylesX = 1025;
-  var hasSharedColors = sharedStylesGroup.layers.length > 2;
-
-  if (!hasSharedColors) {
-    uniqueStylesX = 550;
-    paletteBoard.frame.width = 1000;
-  }
-
-  var uniqueStylesGroup = buildColumnGroup('unique-palette-styles', [uniqueStylesX, 75, 350, coordinates.y], loc('unique.title'), loc('unique.subtitle'));
-  var sharedStylesY = coordinates.y;
-  coordinates.y = 150;
-  var lFGroup = buildSectionGroup(coordinates, 'layer-fills', loc('fillsHeader'), layerFills);
-  var lBGroup = buildSectionGroup(coordinates, 'layer-borders', loc('bordersHeader'), layerBorders, 'border');
-  addLayerIfPresent(lFGroup, uniqueStylesGroup);
-  addLayerIfPresent(lBGroup, uniqueStylesGroup);
-  paletteBoard.layers = [colorVarsGroup, sharedStylesGroup, uniqueStylesGroup].filter(function (group) {
-    return !!group && group.layers.length > 2;
-  });
-  paletteBoard.frame.height = Math.max(colorVarsY, sharedStylesY, coordinates.y) + 100;
-  document.pages[0].layers.unshift(paletteBoard);
-}
-// CONCATENATED MODULE: ./src/commands/setupPalette/index.js
-
-
-
-
-
-
-
-
-var Document = external_sketch_default.a.Document,
-    setupPalette_Settings = external_sketch_default.a.Settings,
-    message = external_sketch_default.a.UI.message;
-function setupPalette() {
-  var document = Document.getSelectedDocument();
-  var colorVars = getColorVariables(document);
-  var sharedFills = getSharedFillStyles(document, colorVars);
-  var sharedBorders = getSharedBorderStyles(document, colorVars);
-
-  var _parseLayers = parseLayers(document),
-      colorPathDictionary = _parseLayers.colorPathDictionary,
-      layerFills = _parseLayers.layerFills,
-      layerBorders = _parseLayers.layerBorders;
-
-  processLayerColors(colorVars, sharedFills, layerFills);
-  processLayerColors(colorVars, sharedBorders, layerBorders);
-  setupPalette_Settings.setDocumentSettingForKey(document, 'color-path-dictionary', colorPathDictionary);
-  setupPalette_Settings.setDocumentSettingForKey(document, 'color-variables', colorVars);
-  setupPalette_Settings.setDocumentSettingForKey(document, 'shared-fills', sharedFills);
-  setupPalette_Settings.setDocumentSettingForKey(document, 'shared-borders', sharedBorders);
-  setupPalette_Settings.setDocumentSettingForKey(document, 'layer-fills', layerFills);
-  setupPalette_Settings.setDocumentSettingForKey(document, 'layer-borders', layerBorders);
-  buildPaletteBoard(document, colorVars, sharedFills, layerFills, sharedBorders, layerBorders);
-  message(loc('messages.paletteBuilt'));
-}
+module.exports = require("sketch");
 
 /***/ })
-/******/ ]);
+
+/******/ });
     if (key === 'default' && typeof exports === 'function') {
       exports(context);
     } else if (typeof exports[key] !== 'function') {
